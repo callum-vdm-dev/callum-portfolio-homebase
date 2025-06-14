@@ -3,6 +3,8 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
+use App\Model\Table\ProjectPhotosTable;
+
 /**
  * ProjectPhotos Controller
  *
@@ -10,6 +12,14 @@ namespace App\Controller;
  */
 class ProjectPhotosController extends AppController
 {
+    private ProjectPhotosTable $ProjectPhotos;
+
+    public function __construct(...$args)
+    {
+        parent::__construct(...$args);
+        $this->ProjectPhotos = $this->fetchTable('ProjectPhotos');
+    }
+    /**
     /**
      * Index method
      *

@@ -3,6 +3,9 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
+use App\Model\Table\PostPhotosTable;
+use Cake\Datasource\FactoryLocator;
+
 /**
  * PostPhotos Controller
  *
@@ -10,6 +13,13 @@ namespace App\Controller;
  */
 class PostPhotosController extends AppController
 {
+    private PostPhotosTable $PostPhotos;
+
+    public function __construct(...$args)
+    {
+        parent::__construct(...$args);
+        $this->PostPhotos = $this->fetchTable('PostPhotos');
+    }
     /**
      * Index method
      *
@@ -17,6 +27,7 @@ class PostPhotosController extends AppController
      */
     public function index()
     {
+
         $query = $this->PostPhotos->find()
             ->contain(['Posts']);
         $postPhotos = $this->paginate($query);
