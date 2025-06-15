@@ -97,4 +97,9 @@ class UsersController extends AppController
 
         return $this->redirect(['action' => 'index']);
     }
+
+    public function adminDashboard(){
+        $this->viewBuilder()->setLayout('admin');
+        $this->render('admin_dashboard');
+    }
 }
