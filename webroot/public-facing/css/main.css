@@ -2001,6 +2001,95 @@ input, select, textarea {
 
 		}
 
+/* Navbar */
+.custom-navbar {
+    position: absolute;         /* Sit on top of content */
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;              /* Keep it above everything else */
+    padding: 1em 0;
+    text-align: center;
+}
+
+.custom-navbar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.custom-navbar > ul > li {
+    display: inline-block;
+    position: relative;
+    margin: 0 1em;
+}
+
+/* Top-level links */
+.custom-navbar a {
+    color: white;
+    text-decoration: none;
+    font-weight: 300;
+    letter-spacing: 0.03em;
+    padding: 0.5em 0.75em;
+    display: inline-block;
+    transition: background 0.3s ease;
+    border-radius: 4px;
+    border: none;
+    box-shadow: none;
+}
+
+/* Hover effect */
+.custom-navbar a:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+/* Dropdown menus */
+.custom-navbar li ul {
+    display: none;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.85);
+    padding: 0.5em 0;
+    min-width: 180px;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 6px;
+    z-index: 1000;
+}
+
+.custom-navbar li:hover > ul {
+    display: block;
+}
+
+.custom-navbar li ul li {
+    display: block;
+    margin: 0;
+}
+
+.custom-navbar li ul a {
+    padding: 0.5em 1em;
+    color: white;
+    text-align: left;
+    display: block;
+}
+
+/* Sub-dropdown menus */
+.custom-navbar li ul li ul {
+    top: 0;
+    left: 100%;
+    transform: none;
+    margin-left: 1px;
+}
+
+/* Optional: responsive adjustments */
+@media screen and (max-width: 768px) {
+    .custom-navbar > ul > li {
+        display: block;
+        margin: 0.5em 0;
+    }
+}
+
+
 /* Section/Article */
 
 	section.special, article.special {
