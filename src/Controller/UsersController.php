@@ -26,8 +26,8 @@ class UsersController extends AppController
         if ($result && $result->isValid()) {
             // redirect after logged in
             $redirect = $this->request->getQuery('redirect', [
-                'controller' => 'Posts',
-                'action' => 'index',
+                'controller' => 'Users',
+                'action' => 'dashboard',
             ]);
 
             return $this->redirect($redirect);
@@ -44,7 +44,7 @@ class UsersController extends AppController
         if ($result && $result->isValid()) {
             $this->Authentication->logout();
 
-            return $this->redirect(['controller' => 'Users', 'action' => 'login']);
+            return $this->redirect(['controller' => 'Pages', 'action' => 'display']);
         }
     }
 
@@ -58,6 +58,7 @@ class UsersController extends AppController
         $query = $this->Users->find();
         $users = $this->paginate($query);
 
+        $this->viewBuilder()->setLayout('admin');
         $this->set(compact('users'));
     }
 
@@ -71,6 +72,7 @@ class UsersController extends AppController
     public function view($id = null)
     {
         $user = $this->Users->get($id, contain: ['Posts', 'Projects']);
+        $this->viewBuilder()->setLayout('admin');
         $this->set(compact('user'));
     }
 
@@ -91,6 +93,7 @@ class UsersController extends AppController
             }
             $this->Flash->error(__('The user could not be saved. Please, try again.'));
         }
+        $this->viewBuilder()->setLayout('admin');
         $this->set(compact('user'));
     }
 
@@ -113,6 +116,7 @@ class UsersController extends AppController
             }
             $this->Flash->error(__('The user could not be saved. Please, try again.'));
         }
+        $this->viewBuilder()->setLayout('admin');
         $this->set(compact('user'));
     }
 
