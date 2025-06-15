@@ -9,8 +9,10 @@
     <title>Photon by HTML5 UP</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-    <link rel="stylesheet" href="public-facing/css/main.css" />
-    <noscript><link rel="stylesheet" href="public-facing/css/noscript.css" /></noscript>
+    <?= $this->Html->css('public-facing/main.css') ?>
+    <noscript>
+        <?= $this->Html->css('public-facing/noscript.css') ?>
+    </noscript>
 </head>
 <body class="is-preload">
 <!-- Nav -->
@@ -56,12 +58,11 @@
 </section>
 
 <!-- Scripts -->
-<script src="public-facing/js/jquery.min.js"></script>
-<script src="public-facing/js/jquery.scrolly.min.js"></script>
-<script src="public-facing/js/browser.min.js"></script>
-<script src="public-facing/js/breakpoints.min.js"></script>
-<script src="public-facing/js/util.js"></script>
-<script src="public-facing/js/main.js"></script>
-
+<?= $this->Html->script('public-facing/jquery.min.js') ?>
+<?= $this->Html->script('public-facing/jquery.scrolly.min.js') ?>
+<?= $this->Html->script('public-facing/browser.min.js') ?>
+<?= $this->Html->script('public-facing/breakpoints.min.js') ?>
+<?= $this->Html->script('public-facing/util.js') ?>
+<?= $this->Html->script('public-facing/main.js') ?>
 </body>
 </html>
