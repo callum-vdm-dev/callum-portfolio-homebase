@@ -10,19 +10,18 @@ $this->setLayout('public')
         <p>Accumsan feugiat mi commodo erat lorem ipsum, sed magna<br />
             lobortis feugiat sapien sed etiam volutpat accumsan.</p>
         <ul class="actions special">
-            <li><a href="#one" class="button scrolly">Discover</a></li>
+            <li><a href="#about" class="button scrolly">Discover</a></li>
         </ul>
     </div>
 </section>
 
 <!-- One -->
-<section id="one" class="main style1">
+<section id="about" class="main style1">
     <div class="container">
         <div class="row gtr-150">
             <div class="col-6 col-12-medium">
                 <header class="major">
-                    <h2>Lorem ipsum dolor adipiscing<br />
-                        amet dolor consequat</h2>
+                    <h2>About Me</h2>
                 </header>
                 <p>Adipiscing a commodo ante nunc accumsan et interdum mi ante adipiscing. A nunc lobortis non nisl amet vis sed volutpat aclacus nascetur ac non. Lorem curae et ante amet sapien sed tempus adipiscing id accumsan.</p>
             </div>
@@ -34,73 +33,88 @@ $this->setLayout('public')
 </section>
 
 <!-- Two -->
-<section id="two" class="main style2">
+<section id="projects" class="main style2">
     <div class="container">
+        <header class="major special">
+            <h2>Featured Projects</h2>
+            <p>A glimpse at some things I've built</p>
+        </header>
         <div class="row gtr-150">
             <div class="col-6 col-12-medium">
-                <ul class="major-icons">
-                    <li><span class="icon solid style1 major fa-code"></span></li>
-                    <li><span class="icon solid style2 major fa-bolt"></span></li>
-                    <li><span class="icon solid style3 major fa-camera-retro"></span></li>
-                    <li><span class="icon solid style4 major fa-cog"></span></li>
-                    <li><span class="icon solid style5 major fa-desktop"></span></li>
-                    <li><span class="icon solid style6 major fa-calendar"></span></li>
+                <span class="image fit">
+                    <img src="images/project-1.jpg" alt="Project 1" />
+                </span>
+                <h3>Lorem Ipsum</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam fermentum augue vitae nunc ultricies, vel facilisis nisl lobortis. Praesent risus ante, vestibulum a euismod vitae, tempus vitae libero. Mauris eleifend iaculis sapien, posuere mollis</p>
+                <ul class="actions" style="display: flex; justify-content: center;">
+                    <li><a href="/projects/view/1" class="button">View Project</a></li>
                 </ul>
+
             </div>
             <div class="col-6 col-12-medium">
-                <header class="major">
-                    <h2>Lorem ipsum dolor adipiscing<br />
-                        amet dolor consequat</h2>
-                </header>
-                <p>Adipiscing a commodo ante nunc accumsan interdum mi ante adipiscing. A nunc lobortis non nisl amet vis volutpat aclacus nascetur ac non. Lorem curae eu ante amet sapien in tempus ac. Adipiscing id accumsan adipiscing ipsum.</p>
-                <p>Blandit faucibus proin. Ac aliquam integer adipiscing enim non praesent vis commodo nunc phasellus cubilia ac risus accumsan. Accumsan blandit. Lobortis phasellus non lobortis dit varius mi varius accumsan lobortis. Blandit ante aliquam lacinia lorem lobortis semper morbi col faucibus vitae integer placerat accumsan orci eu mi odio tempus adipiscing adipiscing adipiscing curae consequat feugiat etiam dolore.</p>
-                <p>Adipiscing a commodo ante nunc accumsan interdum mi ante adipiscing. A nunc lobortis non nisl amet vis volutpat aclacus nascetur ac non. Lorem curae eu ante amet sapien in tempus ac. Adipiscing id accumsan adipiscing ipsum.</p>
+                <span class="image fit">
+                    <img src="images/project-2.jpg" alt="Project 2" />
+                </span>
+                <h3>Lorem ipsum ipsum</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam fermentum augue vitae nunc ultricies, vel facilisis nisl lobortis. Praesent risus ante, vestibulum a euismod vitae, tempus vitae libero. Mauris eleifend iaculis sapien, posuere mollis</p>
+                <ul class="actions" style="display: flex; justify-content: center;">
+                    <li><a href="/projects/view/2" class="button">View Project</a></li>
+                </ul>
             </div>
         </div>
+        <footer class="major">
+            <ul class="actions special">
+                <li><a href="/projects" class="button primary">View All Projects</a></li>
+            </ul>
+        </footer>
     </div>
 </section>
 
+
 <!-- Three -->
-<section id="three" class="main style1 special">
+<section id="blog" class="main style1 special">
     <div class="container">
         <header class="major">
-            <h2>Adipiscing amet consequat</h2>
+            <h2>Latest Blog Posts</h2>
+            <p>Thoughts, guides, and things I've been working on</p>
         </header>
-        <p>Ante nunc accumsan et aclacus nascetur ac ante amet sapien sed.</p>
         <div class="row gtr-150">
             <div class="col-4 col-12-medium">
-                <span class="image fit"><img src="images/pic02.jpg" alt="" /></span>
-                <h3>Magna feugiat lorem</h3>
-                <p>Adipiscing a commodo ante nunc magna lorem et interdum mi ante nunc lobortis non amet vis sed volutpat et nascetur.</p>
+                <h3>How I Built My Portfolio</h3>
+                <p>A short breakdown of the technologies and structure behind my personal site, from layout to deployment.</p>
                 <ul class="actions special">
-                    <li><a href="#" class="button">More</a></li>
+                    <li><a href="/blog/view/1" class="button">Read More</a></li>
                 </ul>
             </div>
             <div class="col-4 col-12-medium">
-                <span class="image fit"><img src="images/pic03.jpg" alt="" /></span>
-                <h3>Magna feugiat lorem</h3>
-                <p>Adipiscing a commodo ante nunc magna lorem et interdum mi ante nunc lobortis non amet vis sed volutpat et nascetur.</p>
+                <h3>5 Lessons from My Last Project</h3>
+                <p>Here are some key takeaways I learned while working on a real-world app — from development pitfalls to UX tips.</p>
                 <ul class="actions special">
-                    <li><a href="#" class="button">More</a></li>
+                    <li><a href="/blog/view/2" class="button">Read More</a></li>
                 </ul>
             </div>
             <div class="col-4 col-12-medium">
-                <span class="image fit"><img src="images/pic04.jpg" alt="" /></span>
-                <h3>Magna feugiat lorem</h3>
-                <p>Adipiscing a commodo ante nunc magna lorem et interdum mi ante nunc lobortis non amet vis sed volutpat et nascetur.</p>
+                <h3>Why I Switched to CakePHP</h3>
+                <p>After trying several PHP frameworks, I found CakePHP to be the best fit for how I like to structure apps. Here’s why.</p>
                 <ul class="actions special">
-                    <li><a href="#" class="button">More</a></li>
+                    <li><a href="/blog/view/3" class="button">Read More</a></li>
                 </ul>
             </div>
         </div>
+        <footer class="major">
+            <ul class="actions special">
+                <li><a href="/blog" class="button primary">View All Posts</a></li>
+            </ul>
+        </footer>
     </div>
 </section>
+
 
 <!-- Four -->
 <section id="four" class="main style2 special">
     <div class="container">
         <header class="major">
-            <h2>Ipsum feugiat consequat?</h2>
+            <h2>Get in Contact!</h2>
         </header>
         <p>Sed lacus nascetur ac ante amet sapien.</p>
         <ul class="actions special">
@@ -427,17 +441,3 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
         </div>
     </section>
 -->
-
-<!-- Footer -->
-<section id="footer">
-    <ul class="icons">
-        <li><a href="#" class="icon brands alt fa-twitter"><span class="label">Twitter</span></a></li>
-        <li><a href="#" class="icon brands alt fa-facebook-f"><span class="label">Facebook</span></a></li>
-        <li><a href="#" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>
-        <li><a href="#" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
-        <li><a href="#" class="icon solid alt fa-envelope"><span class="label">Email</span></a></li>
-    </ul>
-    <ul class="copyright">
-        <li>&copy; Untitled</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-    </ul>
-</section>

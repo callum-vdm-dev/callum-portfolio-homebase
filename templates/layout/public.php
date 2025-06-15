@@ -17,7 +17,7 @@
 <nav id="nav" class="custom-navbar">
     <ul>
         <li>
-            <a href="#">Dropdown</a>
+            <a href="<?= $this->Url->build(['controller' => 'Projects', 'action' => 'index']) ?>">Projects</a>
             <ul>
                 <li><a href="#">Lorem ipsum dolor</a></li>
                 <li><a href="#">Magna phasellus</a></li>
@@ -34,12 +34,26 @@
                 <li><a href="#">Veroeros feugiat</a></li>
             </ul>
         </li>
-        <li><a href="left-sidebar.html">Left Sidebar</a></li>
-        <li class="break"><a href="right-sidebar.html">Right Sidebar</a></li>
-        <li><a href="no-sidebar.html">No Sidebar</a></li>
+        <li><a href="<?= $this->Url->build(['controller' => 'Posts', 'action' => 'index']) ?>">Blog</a></li>
+        <li class="break"><a href="#contact">Contact</a></li>
     </ul>
 </nav>
+
 <?= $this->fetch('content') ?>
+
+<!-- Footer -->
+<section id="footer">
+    <ul class="icons">
+        <li><a href="#" class="icon brands alt fa-twitter"><span class="label">Twitter</span></a></li>
+        <li><a href="#" class="icon brands alt fa-facebook-f"><span class="label">Facebook</span></a></li>
+        <li><a href="#" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>
+        <li><a href="#" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+        <li><a href="#" class="icon solid alt fa-envelope"><span class="label">Email</span></a></li>
+    </ul>
+    <ul class="copyright">
+        <li>&copy; Untitled</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+    </ul>
+</section>
 
 <!-- Scripts -->
 <script src="public-facing/js/jquery.min.js"></script>
