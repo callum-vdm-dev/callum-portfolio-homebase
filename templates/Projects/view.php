@@ -52,7 +52,6 @@
                 <table class="table table-hover table-bordered align-middle">
                     <thead class="table-light">
                     <tr>
-                        <th>ID</th>
                         <th>Title</th>
                         <th>Slug</th>
                         <th>Status</th>
@@ -65,7 +64,6 @@
                     <tbody>
                     <?php foreach ($project->posts as $post) : ?>
                         <tr>
-                            <td><?= h($post->id) ?></td>
                             <td><?= h($post->title) ?></td>
                             <td><?= h($post->slug) ?></td>
                             <td><span class="badge bg-secondary text-capitalize"><?= h($post->status) ?></span></td>
@@ -95,7 +93,6 @@
                 <table class="table table-hover table-bordered align-middle">
                     <thead class="table-light">
                     <tr>
-                        <th>ID</th>
                         <th>Title</th>
                         <th>Caption</th>
                         <th>Path</th>
@@ -108,7 +105,6 @@
                     <tbody>
                     <?php foreach ($project->project_photos as $photo) : ?>
                         <tr>
-                            <td><?= h($photo->id) ?></td>
                             <td><?= h($photo->title) ?></td>
                             <td><?= h($photo->caption) ?></td>
                             <td><?= h($photo->path) ?></td>

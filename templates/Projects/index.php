@@ -15,7 +15,6 @@
             <table class="table table-hover table-bordered align-middle">
                 <thead class="table-light">
                 <tr>
-                    <th><?= $this->Paginator->sort('id') ?></th>
                     <th><?= $this->Paginator->sort('title') ?></th>
                     <th><?= $this->Paginator->sort('slug') ?></th>
                     <th><?= $this->Paginator->sort('github_url') ?></th>
@@ -31,7 +30,6 @@
                 <tbody>
                 <?php foreach ($projects as $project): ?>
                     <tr>
-                        <td><?= $this->Number->format($project->id) ?></td>
                         <td><?= h($project->title) ?></td>
                         <td><?= h($project->slug) ?></td>
                         <td>
