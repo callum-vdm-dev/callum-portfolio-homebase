@@ -132,8 +132,12 @@
                 Start Bootstrap
             </div>
         </nav>
+        <div id="layoutSidenav_content">
+            <main>
+                <?= $this->fetch('content') ?>
+            </main>
+        </div>
     </div>
-    <?= $this->fetch('content') ?>
 
 
 </div>
