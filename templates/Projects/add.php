@@ -15,7 +15,7 @@
 
     <div class="card mb-4">
         <div class="card-body">
-            <?= $this->Form->create($project, ['class' => 'row g-3', 'id' => 'project-form']) ?>
+            <?= $this->Form->create($project, ['class' => 'row g-3', 'id' => 'post-form']) ?>
 
             <div class="col-md-6">
                 <?= $this->Form->control('title', [
@@ -36,7 +36,7 @@
                 <div id="quill-editor" style="height: 200px;"></div>
                 <?= $this->Form->control('overview', [
                     'type' => 'hidden',
-                    'id' => 'overview',
+                    'id' => 'text',
                     'name' => 'overview',
                     'label' => false
                 ]) ?>
@@ -89,26 +89,4 @@
         </div>
     </div>
 </div>
-
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        const quill = new Quill('#quill-editor', {
-            theme: 'snow',
-            modules: {
-                toolbar: [
-                    [{ header: [1, 2, false] }],
-                    ['bold', 'italic', 'underline'],
-                    ['link', 'image'],
-                    [{ list: 'ordered' }, { list: 'bullet' }],
-                    ['clean']
-                ]
-            }
-        });
-
-        const form = document.getElementById('project-form');
-        form.addEventListener('submit', function () {
-            const hiddenField = document.querySelector('#overview');
-            hiddenField.value = quill.root.innerHTML;
-        });
-    });
-</script>
+<?= $this->element('quill_editor_setup') ?>

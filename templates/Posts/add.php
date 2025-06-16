@@ -77,26 +77,4 @@
         </div>
     </div>
 </div>
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        const quill = new Quill('#quill-editor', {
-            theme: 'snow',
-            modules: {
-                toolbar: [
-                    [{ header: [1, 2, false] }],
-                    ['bold', 'italic', 'underline'],
-                    ['image', 'code-block'],
-                    [{ list: 'ordered'}, { list: 'bullet' }],
-                    ['clean']
-                ]
-            }
-        });
-
-        const form = document.getElementById('post-form');
-        form.addEventListener('submit', function (event) {
-            const hiddenField = document.querySelector('#text');
-            hiddenField.value = quill.root.innerHTML;
-        });
-    });
-
-</script>
+<?= $this->element('quill_editor_setup') ?>
