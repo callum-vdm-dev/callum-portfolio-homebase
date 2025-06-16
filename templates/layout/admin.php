@@ -9,6 +9,13 @@
     <title>Dashboard - SB Admin</title>
     <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
     <?= $this->Html->css('admin/styles.css') ?>
+
+    <!-- Include Quill stylesheet -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/quill@2/dist/quill.snow.css"
+        rel="stylesheet"
+    />
+
     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
 </head>
 <body class="sb-nav-fixed">
@@ -146,5 +153,8 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js" crossorigin="anonymous"></script>
 <?= $this->Html->script('admin/datatables-simple-demo.js') ?>
+
+<!--for the quill rich text editor-->
+<script src="https://cdn.jsdelivr.net/npm/quill@2/dist/quill.js"></script>
 </body>
 </html>

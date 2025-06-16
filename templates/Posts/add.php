@@ -16,7 +16,7 @@
 
     <div class="card mb-4">
         <div class="card-body">
-            <?= $this->Form->create($post, ['class' => 'row g-3']) ?>
+            <?= $this->Form->create($post, ['class' => 'row g-3', 'id' => 'post-form']) ?>
             <div class="col-md-6">
                 <?= $this->Form->control('title', [
                     'class' => 'form-control',
@@ -32,13 +32,16 @@
             </div>
 
             <div class="col-md-12">
+                <label for="editor" class="form-label">Post Content</label>
+                <div id="quill-editor" style="height: 300px;"></div>
                 <?= $this->Form->control('text', [
-                    'type' => 'textarea',
-                    'rows' => 8,
-                    'class' => 'form-control',
-                    'label' => 'Post Content'
+                    'type' => 'hidden',
+                    'id' => 'text',
+                    'name' => 'text',
+                    'label' => false
                 ]) ?>
             </div>
+
 
             <div class="col-md-6">
                 <?= $this->Form->control('status', [
@@ -74,3 +77,26 @@
         </div>
     </div>
 </div>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const quill = new Quill('#quill-editor', {
+            theme: 'snow',
+            modules: {
+                toolbar: [
+                    [{ header: [1, 2, false] }],
+                    ['bold', 'italic', 'underline'],
+                    ['image', 'code-block'],
+                    [{ list: 'ordered'}, { list: 'bullet' }],
+                    ['clean']
+                ]
+            }
+        });
+
+        const form = document.getElementById('post-form');
+        form.addEventListener('submit', function (event) {
+            const hiddenField = document.querySelector('#text');
+            hiddenField.value = quill.root.innerHTML;
+        });
+    });
+
+</script>

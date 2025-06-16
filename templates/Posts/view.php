@@ -59,7 +59,7 @@
 
             <h5 class="mt-4">Post Content</h5>
             <blockquote class="blockquote p-3 bg-light border rounded">
-                <?= $this->Text->autoParagraph(h($post->text)) ?>
+                <?= $post->text ?>
             </blockquote>
         </div>
     </div>
