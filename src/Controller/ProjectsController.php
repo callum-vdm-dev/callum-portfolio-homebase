@@ -21,6 +21,7 @@ class ProjectsController extends AppController
             ->contain(['Users']);
         $projects = $this->paginate($query);
 
+        $this->viewBuilder()->setLayout('admin');
         $this->set(compact('projects'));
     }
 
@@ -34,6 +35,7 @@ class ProjectsController extends AppController
     public function view($id = null)
     {
         $project = $this->Projects->get($id, contain: ['Users', 'Posts', 'ProjectPhotos']);
+        $this->viewBuilder()->setLayout('admin');
         $this->set(compact('project'));
     }
 
@@ -55,6 +57,7 @@ class ProjectsController extends AppController
             $this->Flash->error(__('The project could not be saved. Please, try again.'));
         }
         $users = $this->Projects->Users->find('list', limit: 200)->all();
+        $this->viewBuilder()->setLayout('admin');
         $this->set(compact('project', 'users'));
     }
 
@@ -78,6 +81,7 @@ class ProjectsController extends AppController
             $this->Flash->error(__('The project could not be saved. Please, try again.'));
         }
         $users = $this->Projects->Users->find('list', limit: 200)->all();
+        $this->viewBuilder()->setLayout('admin');
         $this->set(compact('project', 'users'));
     }
 
