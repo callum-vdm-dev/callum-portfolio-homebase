@@ -1,26 +1,88 @@
+<?php
+/**
+ * @var string $editorId – the DOM id of the editor (e.g. 'editor')
+ * @var string $fieldName – the name of the hidden input field (e.g. 'text')
+ * @var string|null $initialContent – optional HTML to preload into the editor
+ */
+$editorId = $editorId ?? 'editor';
+$fieldName = $fieldName ?? 'text';
+$initialContent = $initialContent ?? '';
+$toolbarId = $editorId . '-toolbar';
+?>
+<!-- Toolbar -->
+<div id="<?= $toolbarId ?>">
+  <span class="ql-formats">
+    <select class="ql-font"></select>
+    <select class="ql-size"></select>
+  </span>
+    <span class="ql-formats">
+    <button class="ql-bold"></button>
+    <button class="ql-italic"></button>
+    <button class="ql-underline"></button>
+    <button class="ql-strike"></button>
+  </span>
+    <span class="ql-formats">
+    <select class="ql-color"></select>
+    <select class="ql-background"></select>
+  </span>
+    <span class="ql-formats">
+    <button class="ql-script" value="sub"></button>
+    <button class="ql-script" value="super"></button>
+  </span>
+    <span class="ql-formats">
+    <button class="ql-header" value="1"></button>
+    <button class="ql-header" value="2"></button>
+    <button class="ql-blockquote"></button>
+    <button class="ql-code-block"></button>
+  </span>
+    <span class="ql-formats">
+    <button class="ql-list" value="ordered"></button>
+    <button class="ql-list" value="bullet"></button>
+    <button class="ql-indent" value="-1"></button>
+    <button class="ql-indent" value="+1"></button>
+  </span>
+    <span class="ql-formats">
+    <button class="ql-direction" value="rtl"></button>
+    <select class="ql-align"></select>
+  </span>
+    <span class="ql-formats">
+    <button class="ql-link"></button>
+    <button class="ql-image"></button>
+    <button class="ql-video"></button>
+    <button class="ql-formula"></button>
+  </span>
+    <span class="ql-formats">
+    <button class="ql-clean"></button>
+  </span>
+</div>
+
+<!-- Editor -->
+<div id="<?= $editorId ?>" style="height: 300px;"></div>
+<input type="hidden" id="<?= $fieldName ?>" name="<?= $fieldName ?>" value="<?= h($initialContent) ?>" />
+
+<!-- Init script -->
 <script>
     document.addEventListener('DOMContentLoaded', function () {
-        const quill = new Quill('#quill-editor', {
+        const quill = new Quill('#<?= $editorId ?>', {
             theme: 'snow',
+            placeholder: 'Compose your post...',
             modules: {
-                toolbar: [
-                    [{ header: [1, 2, false] }],
-                    ['bold', 'italic', 'underline'],
-                    ['image', 'code-block'],
-                    [{ list: 'ordered'}, { list: 'bullet' }],
-                    ['clean']
-                ]
+                syntax: true,
+                formula: true,
+                toolbar: '#<?= $toolbarId ?>'
             }
         });
 
-        // Set initial value
-        const hiddenField = document.querySelector('#text');
-        quill.root.innerHTML = hiddenField.value;
+        const hiddenInput = document.getElementById('<?= $fieldName ?>');
+        if (hiddenInput.value) {
+            quill.root.innerHTML = hiddenInput.value;
+        }
 
-        // Update hidden field on submit
-        const form = document.getElementById('post-form');
-        form.addEventListener('submit', function () {
-            hiddenField.value = quill.root.innerHTML;
-        });
+        const form = hiddenInput.closest('form');
+        if (form) {
+            form.addEventListener('submit', function () {
+                hiddenInput.value = quill.root.innerHTML;
+            });
+        }
     });
 </script>

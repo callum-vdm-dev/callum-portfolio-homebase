@@ -33,13 +33,10 @@
 
             <div class="col-md-12">
                 <label for="editor" class="form-label">Project Overview</label>
-                <div id="quill-editor" style="height: 200px;"></div>
-                <?= $this->Form->control('overview', [
-                    'type' => 'hidden',
-                    'id' => 'text',
-                    'name' => 'overview',
-                    'label' => false,
-                    'value' => $project->overview // pass value to prefill Quill editor
+                <?= $this->element('quill_editor_setup', [
+                    'editorId' => 'quill-editor',
+                    'fieldName' => 'overview',
+                    'initialContent' => $project->overview ?? ''
                 ]) ?>
             </div>
 
@@ -101,4 +98,3 @@
         </div>
     </div>
 </div>
-<?= $this->element('quill_editor_setup') ?>

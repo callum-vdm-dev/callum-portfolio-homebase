@@ -33,14 +33,12 @@
 
             <div class="col-md-12">
                 <label for="editor" class="form-label">Project Overview</label>
-                <div id="quill-editor" style="height: 200px;"></div>
-                <?= $this->Form->control('overview', [
-                    'type' => 'hidden',
-                    'id' => 'text',
-                    'name' => 'overview',
-                    'label' => false
+                <?= $this->element('quill_editor_setup', [
+                    'editorId' => 'quill-editor',
+                    'fieldName' => 'overview'
                 ]) ?>
             </div>
+
 
             <div class="col-md-6">
                 <?= $this->Form->control('github_url', [
@@ -89,4 +87,3 @@
         </div>
     </div>
 </div>
-<?= $this->element('quill_editor_setup') ?>

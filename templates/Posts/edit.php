@@ -34,11 +34,10 @@
 
             <div class="col-md-12">
                 <label for="editor" class="form-label">Post Content</label>
-                <div id="quill-editor" style="height: 300px;"></div>
-                <?= $this->Form->control('text', [
-                    'type' => 'hidden',
-                    'id' => 'text',
-                    'label' => false
+                <?= $this->element('quill_editor_setup', [
+                    'editorId' => 'quill-editor',
+                    'fieldName' => 'text',
+                    'initialContent' => $post->text ?? ''
                 ]) ?>
             </div>
 
@@ -82,6 +81,3 @@
         </div>
     </div>
 </div>
-
-<!-- Quill setup script -->
-<?= $this->element('quill_editor_setup') ?>
