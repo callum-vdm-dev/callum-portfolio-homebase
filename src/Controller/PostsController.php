@@ -21,6 +21,7 @@ class PostsController extends AppController
             ->contain(['Projects', 'Users']);
         $posts = $this->paginate($query);
 
+        $this->viewBuilder()->setLayout('admin');
         $this->set(compact('posts'));
     }
 
@@ -34,6 +35,7 @@ class PostsController extends AppController
     public function view($id = null)
     {
         $post = $this->Posts->get($id, contain: ['Projects', 'Users', 'PostPhotos']);
+        $this->viewBuilder()->setLayout('admin');
         $this->set(compact('post'));
     }
 
@@ -56,6 +58,7 @@ class PostsController extends AppController
         }
         $projects = $this->Posts->Projects->find('list', limit: 200)->all();
         $users = $this->Posts->Users->find('list', limit: 200)->all();
+        $this->viewBuilder()->setLayout('admin');
         $this->set(compact('post', 'projects', 'users'));
     }
 
@@ -80,6 +83,7 @@ class PostsController extends AppController
         }
         $projects = $this->Posts->Projects->find('list', limit: 200)->all();
         $users = $this->Posts->Users->find('list', limit: 200)->all();
+        $this->viewBuilder()->setLayout('admin');
         $this->set(compact('post', 'projects', 'users'));
     }
 
