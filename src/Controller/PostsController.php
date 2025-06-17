@@ -10,6 +10,10 @@ namespace App\Controller;
  */
 class PostsController extends AppController
 {
+    public function initialize(): void
+    {
+        parent::initialize();
+    }
     /**
      * Index method
      *
@@ -126,12 +130,18 @@ class PostsController extends AppController
 
         $image->moveTo($fullPath);
 
-        $imageUrl = $this->request->getAttribute('webroot') . 'uploads/' . $filename;
+        // Build your image URL manually. Adjust if your webroot configuration differs.
+        $imageUrl = $this->getRequest()->getAttribute('webroot') . 'uploads/' . $filename;
 
-        $this->set([
-            'url' => $imageUrl,
-            '_serialize' => ['url']
-        ]);
+        // Create the response data.
+        $responseData = ['url' => $imageUrl];
+
+        // Manually set the response to return JSON.
+        $this->response = $this->response
+            ->withType('application/json')
+            ->withStringBody(json_encode($responseData));
+
+        return $this->response;
     }
 
 
