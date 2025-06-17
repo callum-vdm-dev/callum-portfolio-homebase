@@ -141,6 +141,7 @@ class UsersController extends AppController
     }
 
     public function dashboard(){
+        $this->set('authUser', $this->request->getAttribute('identity'));
         $this->viewBuilder()->setLayout('admin');
     }
 }
