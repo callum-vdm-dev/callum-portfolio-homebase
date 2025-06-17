@@ -17,6 +17,8 @@
 
 
     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+    <?= $this->Html->meta('csrfToken', $this->request->getAttribute('csrfToken')); ?>
+
 </head>
 <body class="sb-nav-fixed">
 <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">

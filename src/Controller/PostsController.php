@@ -106,4 +106,33 @@ class PostsController extends AppController
 
         return $this->redirect(['action' => 'index']);
     }
+
+    public function uploadImage()
+    {
+        $this->request->allowMethod(['post']);
+        $image = $this->request->getData('image');
+
+        if (!$image || $image->getError() !== UPLOAD_ERR_OK) {
+            throw new \Cake\Http\Exception\BadRequestException('Invalid image upload.');
+        }
+
+        $uploadPath = WWW_ROOT . 'uploads' . DS;
+        if (!file_exists($uploadPath)) {
+            mkdir($uploadPath, 0755, true);
+        }
+
+        $filename = uniqid() . '-' . preg_replace('/[^a-z0-9\.\-_]/i', '', $image->getClientFilename());
+        $fullPath = $uploadPath . $filename;
+
+        $image->moveTo($fullPath);
+
+        $imageUrl = $this->request->getAttribute('webroot') . 'uploads/' . $filename;
+
+        $this->set([
+            'url' => $imageUrl,
+            '_serialize' => ['url']
+        ]);
+    }
+
+
 }

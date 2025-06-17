@@ -69,7 +69,47 @@ $toolbarId = $editorId . '-toolbar';
             modules: {
                 syntax: true,
                 formula: true,
-                toolbar: '#<?= $toolbarId ?>'
+                toolbar: {
+                    container: '#<?= $toolbarId ?>',
+                    handlers: {
+                        image: function () {
+                            const input = document.createElement('input');
+                            input.setAttribute('type', 'file');
+                            input.setAttribute('accept', 'image/*');
+                            input.click();
+
+                            input.onchange = async () => {
+                                const file = input.files[0];
+                                if (file) {
+                                    const formData = new FormData();
+                                    formData.append('image', file);
+
+                                    try {
+                                        const csrfToken = document.querySelector('meta[name="csrfToken"]').getAttribute('content');
+                                        const res = await fetch('<?= $this->Url->build(["controller" => "Posts", "action" => "uploadImage"]) ?>', {
+                                            method: 'POST',
+                                            headers: {
+                                                'X-CSRF-Token': csrfToken
+                                            },
+                                            body: formData,
+                                        });
+
+                                        const data = await res.json();
+                                        if (data.url) {
+                                            const range = quill.getSelection(true);
+                                            quill.insertEmbed(range.index, 'image', data.url);
+                                        } else {
+                                            alert('Upload failed');
+                                        }
+                                    } catch (e) {
+                                        alert('Upload error');
+                                        console.error(e);
+                                    }
+                                }
+                            };
+                        }
+                    }
+                }
             }
         });
 
@@ -86,3 +126,4 @@ $toolbarId = $editorId . '-toolbar';
         }
     });
 </script>
+
