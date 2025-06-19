@@ -20,6 +20,7 @@ class ContentsController extends AppController
         $query = $this->Contents->find();
         $contents = $this->paginate($query);
 
+        $this->viewBuilder()->setLayout('admin');
         $this->set(compact('contents'));
     }
 
@@ -33,6 +34,8 @@ class ContentsController extends AppController
     public function view($id = null)
     {
         $content = $this->Contents->get($id, contain: []);
+
+        $this->viewBuilder()->setLayout('admin');
         $this->set(compact('content'));
     }
 
@@ -53,6 +56,8 @@ class ContentsController extends AppController
             }
             $this->Flash->error(__('The content could not be saved. Please, try again.'));
         }
+
+        $this->viewBuilder()->setLayout('admin');
         $this->set(compact('content'));
     }
 
@@ -75,6 +80,8 @@ class ContentsController extends AppController
             }
             $this->Flash->error(__('The content could not be saved. Please, try again.'));
         }
+
+        $this->viewBuilder()->setLayout('admin');
         $this->set(compact('content'));
     }
 

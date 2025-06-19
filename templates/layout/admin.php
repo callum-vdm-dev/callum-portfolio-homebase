@@ -126,12 +126,20 @@
                         All Projects
                     </a>
 
-                    <!--                    Manage-->
-                    <div class="sb-sidenav-menu-heading">Manage</div>
+                    <!--                    Content Management-->
+                    <div class="sb-sidenav-menu-heading">Content Management</div>
+                    <a class="nav-link" href="<?= $this->Url->build(['controller' => 'Contents', 'action' => 'index']) ?>">
+                        <div class="sb-nav-link-icon"><i class="fa-solid fa-house"></i></div>
+                        Manage Pages
+                    </a>
+
+                    <!--                    Accounts-->
+                    <div class="sb-sidenav-menu-heading">Accounts</div>
                     <a class="nav-link" href="<?= $this->Url->build(['controller' => 'Users', 'action' => 'index']) ?>">
                         <div class="sb-nav-link-icon"><i class="fa-solid fa-user"></i></div>
                         View Users
                     </a>
+
                 </div>
             </div>
 
