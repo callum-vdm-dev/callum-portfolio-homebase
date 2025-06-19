@@ -1,16 +1,20 @@
 <?php
+/**
+ * @var homepageContents content from the db to inject into the page.
+ */
 $this->setLayout('public')
 ?>
 <!-- Header -->
 <section id="header">
     <div class="inner">
         <span class="icon solid major fa-cloud"></span>
-        <h1>Hi, I'm <strong>Photon</strong>, another fine<br />
-            little freebie from <a href="http://html5up.net">HTML5 UP</a>.</h1>
-        <p>Accumsan feugiat mi commodo erat lorem ipsum, sed magna<br />
-            lobortis feugiat sapien sed etiam volutpat accumsan.</p>
+<!--        hero_title-->
+        <h1><?= $homepageContents['hero_title'] ?? 'Welcome!' ?></h1>
+        <p><?= $homepageContents['hero_text'] ?? 'Have a look around!' ?></p>
         <ul class="actions special">
-            <li><a href="#about" class="button scrolly">Discover</a></li>
+            <li><a href="#about" class="button scrolly">
+                    <?= $homepageContents['hero_button_text'] ?? 'Discover' ?>
+                </a></li>
         </ul>
     </div>
 </section>
@@ -21,9 +25,9 @@ $this->setLayout('public')
         <div class="row gtr-150">
             <div class="col-6 col-12-medium">
                 <header class="major">
-                    <h2>About Me</h2>
+                    <h2><?= $homepageContents['about_title']??'About Me' ?></h2>
                 </header>
-                <p>Adipiscing a commodo ante nunc accumsan et interdum mi ante adipiscing. A nunc lobortis non nisl amet vis sed volutpat aclacus nascetur ac non. Lorem curae et ante amet sapien sed tempus adipiscing id accumsan.</p>
+                <p><?= $homepageContents['about_text']??'This is where I will tell my story.' ?></p>
             </div>
             <div class="col-6 col-12-medium imp-medium">
                 <span class="image fit"><img src="images/pic01.jpg" alt="" /></span>
@@ -36,74 +40,82 @@ $this->setLayout('public')
 <section id="projects" class="main style2">
     <div class="container">
         <header class="major special">
-            <h2>Featured Projects</h2>
-            <p>A glimpse at some things I've built</p>
+            <h2><?= $homepageContents['projects_title']??'My Projects' ?></h2>
+            <p><?= $homepageContents['projects_text']??'Featured projects I have worked on'?></p>
         </header>
         <div class="row gtr-150">
             <div class="col-6 col-12-medium">
                 <span class="image fit">
                     <img src="images/project-1.jpg" alt="Project 1" />
                 </span>
-                <h3>Lorem Ipsum</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam fermentum augue vitae nunc ultricies, vel facilisis nisl lobortis. Praesent risus ante, vestibulum a euismod vitae, tempus vitae libero. Mauris eleifend iaculis sapien, posuere mollis</p>
+                <h3><?= $homepageContents['projects_1_title']??'First Project' ?></h3>
+                <p><?= $homepageContents['projects_1_text']??'Text about my first project' ?></p>
                 <ul class="actions" style="display: flex; justify-content: center;">
-                    <li><a href="/projects/view/1" class="button">View Project</a></li>
+<!--                    TODO link to project 1-->
+<!--                    --><?php //= $homepageContents['projects_1_slug']??''?>
+                    <li><a href="/projects/view/1" class="button">
+                            <?= $homepageContents['projects_button']??'View' ?>
+                        </a></li>
                 </ul>
-
             </div>
             <div class="col-6 col-12-medium">
                 <span class="image fit">
                     <img src="images/project-2.jpg" alt="Project 2" />
                 </span>
-                <h3>Lorem ipsum ipsum</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam fermentum augue vitae nunc ultricies, vel facilisis nisl lobortis. Praesent risus ante, vestibulum a euismod vitae, tempus vitae libero. Mauris eleifend iaculis sapien, posuere mollis</p>
+                <h3><?= $homepageContents['projects_2_title']??'Second Project' ?></h3>
+                <p><?= $homepageContents['projects_2_text']??'Text about my second project' ?></p>
                 <ul class="actions" style="display: flex; justify-content: center;">
-                    <li><a href="/projects/view/2" class="button">View Project</a></li>
+<!--                    TODO link to project 2-->
+<!--                    --><?php //= $homepageContents['projects_2_slug']??''?>
+                    <li><a href="/projects/view/2" class="button">
+                            <?= $homepageContents['projects_button']??'View' ?>
+                        </a></li>
                 </ul>
             </div>
         </div>
         <footer class="major">
             <ul class="actions special">
-                <li><a href="/projects" class="button primary">View All Projects</a></li>
+                <li><a href="projects" class="button primary">
+                        <?= $homepageContents['projects_all_button']??'See All Projects' ?>
+                    </a></li>
             </ul>
         </footer>
     </div>
 </section>
 
-
 <!-- Three -->
 <section id="blog" class="main style1 special">
     <div class="container">
         <header class="major">
-            <h2>Latest Blog Posts</h2>
-            <p>Thoughts, guides, and things I've been working on</p>
+            <h2><?= $homepageContents['blog_title']??'Blog Posts' ?></h2>
+            <p><?= $homepageContents['blog_text']??'See what I have been posting' ?></p>
         </header>
         <div class="row gtr-150">
             <div class="col-4 col-12-medium">
-                <h3>How I Built My Portfolio</h3>
-                <p>A short breakdown of the technologies and structure behind my personal site, from layout to deployment.</p>
+                <h3><?= $homepageContents['blog_1_title']??'Post 1' ?></h3>
+                <p><?= $homepageContents['blog_1_text']??'Text about the first post' ?></p>
                 <ul class="actions special">
-                    <li><a href="/blog/view/1" class="button">Read More</a></li>
+                    <li><a href="/blog/view/1" class="button"><?= $homepageContents['blog_button']??'Read' ?></a></li>
                 </ul>
             </div>
             <div class="col-4 col-12-medium">
-                <h3>5 Lessons from My Last Project</h3>
-                <p>Here are some key takeaways I learned while working on a real-world app — from development pitfalls to UX tips.</p>
+                <h3><?= $homepageContents['blog_2_title']??'Post 2' ?></h3>
+                <p><?= $homepageContents['blog_2_text']??'Text about the second post' ?></p>
                 <ul class="actions special">
-                    <li><a href="/blog/view/2" class="button">Read More</a></li>
+                    <li><a href="/blog/view/2" class="button"><?= $homepageContents['blog_button']??'Read' ?></a></li>
                 </ul>
             </div>
             <div class="col-4 col-12-medium">
-                <h3>Why I Switched to CakePHP</h3>
-                <p>After trying several PHP frameworks, I found CakePHP to be the best fit for how I like to structure apps. Here’s why.</p>
+                <h3><?= $homepageContents['blog_3_title']??'Post 3' ?></h3>
+                <p><?= $homepageContents['blog_3_text']??'Text about the third post' ?></p>
                 <ul class="actions special">
-                    <li><a href="/blog/view/3" class="button">Read More</a></li>
+                    <li><a href="/blog/view/3" class="button"><?= $homepageContents['blog_button']??'Read' ?></a></li>
                 </ul>
             </div>
         </div>
         <footer class="major">
             <ul class="actions special">
-                <li><a href="/blog" class="button primary">View All Posts</a></li>
+                <li><a href="/blog" class="button primary"><?= $homepageContents['blog_all_button']??'See All Posts' ?></a></li>
             </ul>
         </footer>
     </div>

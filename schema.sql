@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 14, 2025 at 10:08 AM
+-- Generation Time: Jun 19, 2025 at 06:57 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -20,6 +20,51 @@ SET time_zone = "+00:00";
 --
 -- Database: `callum-portfolio-homebase`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `contents`
+--
+
+CREATE TABLE `contents` (
+  `id` int(11) NOT NULL,
+  `slug` varchar(255) NOT NULL COMMENT 'Of the page the content belongs to',
+  `title` varchar(255) NOT NULL COMMENT 'The name of the section',
+  `content` text DEFAULT NULL,
+  `modified` datetime NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `contents`
+--
+
+INSERT INTO `contents` (`id`, `slug`, `title`, `content`, `modified`) VALUES
+(1, 'homepage', 'hero_title', 'Hey there! My name is <strong>DEFAULT DEFAULTSON</strong>, and this is my personal website! ', '2025-06-19 04:11:46'),
+(2, 'homepage', 'hero_text', 'Have a look at what I am working on and cool projects I have completed!', '2025-06-19 04:07:46'),
+(3, 'homepage', 'hero_button_text', 'Check it out!', '2025-06-19 04:11:10'),
+(4, 'homepage', 'about_title', 'What I am about', '2025-06-19 04:14:36'),
+(5, 'homepage', 'about_text', 'A little something about myself.', '2025-06-19 04:17:59'),
+(6, 'homepage', 'projects_title', 'Featured Projects', '2025-06-19 04:19:41'),
+(7, 'homepage', 'projects_text', 'A glimpse at some things I\'ve built', '2025-06-19 04:22:19'),
+(8, 'homepage', 'projects_1_title', 'My First Project', '2025-06-19 04:24:17'),
+(9, 'homepage', 'projects_1_text', 'A brief description about my first project.', '2025-06-19 04:26:10'),
+(10, 'homepage', 'projects_1_slug', 'insert slug here', '2025-06-19 04:29:45'),
+(11, 'homepage', 'projects_2_title', 'My Second Project', '2025-06-19 04:31:18'),
+(12, 'homepage', 'projects_2_text', 'A brief description about my second project.', '2025-06-19 04:32:36'),
+(13, 'homepage', 'projects_2_slug', 'Project 2 slug here', '2025-06-19 04:34:11'),
+(14, 'homepage', 'projects_button', 'View Project', '2025-06-19 04:36:31'),
+(15, 'homepage', 'projects_all_button', 'View All Projects', '2025-06-19 04:38:56'),
+(16, 'homepage', 'blog_title', 'Latest Blog Posts', '2025-06-19 04:40:22'),
+(17, 'homepage', 'blog_text', 'Thoughts, guides, and things I\'ve been working on', '2025-06-19 04:41:32'),
+(18, 'homepage', 'blog_1_title', 'My First Post', '2025-06-19 04:48:59'),
+(19, 'homepage', 'blog_1_text', 'Brief description about the first post.', '2025-06-19 04:49:35'),
+(20, 'homepage', 'blog_2_title', 'My Second Post', '2025-06-19 04:49:53'),
+(21, 'homepage', 'blog_2_text', 'A brief description about the second post.', '2025-06-19 04:50:35'),
+(22, 'homepage', 'blog_3_title', 'My Third Post', '2025-06-19 04:52:07'),
+(23, 'homepage', 'blog_3_text', 'A brief description about my third post.', '2025-06-19 04:52:27'),
+(24, 'homepage', 'blog_button', 'Read More', '2025-06-19 04:54:01'),
+(25, 'homepage', 'blog_all_button', 'View All Posts', '2025-06-19 04:55:15');
 
 -- --------------------------------------------------------
 
@@ -108,8 +153,21 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `name`, `email`, `password`, `role`, `created`, `modified`) VALUES
+(2, 'Default Admin', 'default@example.com', '$2y$10$j1J6cDrZFW7WLVuIB/Q6B.gvRI3uHVOO3j1oKxgBcBjAlfwOJvqZW', 'admin', '2025-06-19 03:22:26', '2025-06-19 03:22:26');
+
+--
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `contents`
+--
+ALTER TABLE `contents`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `posts`
@@ -154,6 +212,12 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT for table `contents`
+--
+ALTER TABLE `contents`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+
+--
 -- AUTO_INCREMENT for table `posts`
 --
 ALTER TABLE `posts`
@@ -181,7 +245,7 @@ ALTER TABLE `project_photos`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Constraints for dumped tables

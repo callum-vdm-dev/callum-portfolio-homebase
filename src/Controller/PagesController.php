@@ -20,6 +20,7 @@ use Cake\Core\Configure;
 use Cake\Http\Exception\ForbiddenException;
 use Cake\Http\Exception\NotFoundException;
 use Cake\Http\Response;
+use Cake\ORM\TableRegistry;
 use Cake\View\Exception\MissingTemplateException;
 
 /**
@@ -66,6 +67,15 @@ class PagesController extends AppController
         }
         $this->set(compact('page', 'subpage'));
 
+        //Injecting content from db into pages
+        if ($page === 'home') {
+            $contents = TableRegistry::getTableLocator()->get('Contents');
+            $homepageContentsRaw = $contents->find()
+                ->where(['slug' => 'homepage'])->all();
+            $homepageContents = $this->prepareContents($homepageContentsRaw);
+            $this->set(compact('homepageContents'));
+        }
+
         try {
             return $this->render(implode('/', $path));
         } catch (MissingTemplateException $exception) {
@@ -74,5 +84,13 @@ class PagesController extends AppController
             }
             throw new NotFoundException();
         }
+    }
+
+    private function prepareContents($collection){
+        $contents = [];
+        foreach ($collection as $item) {
+            $contents[$item->title] = $item->content;
+        }
+        return $contents;
     }
 }
