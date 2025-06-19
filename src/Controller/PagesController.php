@@ -86,7 +86,8 @@ class PagesController extends AppController
         }
     }
 
-    private function prepareContents($collection){
+    private function prepareContents($collection): array
+    {
         $contents = [];
         foreach ($collection as $item) {
             $contents[$item->title] = $item->content;

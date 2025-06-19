@@ -7,7 +7,7 @@ $this->setLayout('public')
 <!-- Header -->
 <section id="header">
     <div class="inner">
-        <span class="icon solid major fa-cloud"></span>
+        <span class="icon solid major fa-code"></span>
 <!--        hero_title-->
         <h1><?= $homepageContents['hero_title'] ?? 'Welcome!' ?></h1>
         <p><?= $homepageContents['hero_text'] ?? 'Have a look around!' ?></p>
