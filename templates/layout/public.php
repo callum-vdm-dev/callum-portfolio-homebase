@@ -22,6 +22,9 @@
 <nav id="nav" class="custom-navbar">
     <ul>
         <li>
+            <a href="<?= $this->Url->build(['controller' => 'Pages', 'url' => '/']) ?>">Home</a>
+        </li>
+        <li>
             <a href="<?= $this->Url->build(['controller' => 'Projects', 'action' => 'index']) ?>">Projects</a>
             <ul>
                 <li><a href="#">Lorem ipsum dolor</a></li>

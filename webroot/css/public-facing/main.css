@@ -3057,6 +3057,41 @@ input, select, textarea {
     font-size: 1rem;
 }
 
+/* Content Pages (view project and view blog) */
+.content-dark {
+    background-color: #111;        /* Very dark, not quite pure black */
+    color: #fff;                   /* Default text color */
+    padding: 1.5rem;               /* Space around content */
+    border-radius: 0.5rem;         /* Rounded corners */
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.3); /* Optional depth */
+}
+
+.content-dark * {
+    color: #fff !important;        /* Force white text for nested tags like <strong>, <a>, <h*> */
+}
+
+.content-dark a {
+    text-decoration: underline;
+    color: #79b8ff !important;     /* Optional: make links stand out */
+}
+
+.content-dark a:hover {
+    color: #fff !important;
+    text-decoration: none;
+}
+
+.content-dark img{
+    max-width: 90%;
+    height: auto;
+    display: block;
+    margin: 1rem auto; /* optional: center images */
+    border-radius: 6px; /* optional: soften edges */
+}
+
+.project-meta span {
+    margin-right: 1rem;
+}
+
 /* Header */
 
 #header {
