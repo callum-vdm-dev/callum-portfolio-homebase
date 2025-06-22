@@ -91,14 +91,17 @@ $this->assign('title', $project->title);
         <div class="modal-dialog modal-dialog-centered modal-lg">
             <div class="modal-content bg-dark text-light">
                 <div class="modal-header border-0">
-                    <h3 class="modal-title" id="relatedPostsModalLabel">Related Blog Posts</h3>
-                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <h2 class="modal-title text-light" id="relatedPostsModalLabel">Related Blog Posts</h2>
+                    <button type="button" class="btn btn-outline-light btn-square" data-bs-dismiss="modal" aria-label="Close">
+                        <i class="fa fa-times text-light"></i>
+                    </button>
+
                 </div>
                 <div class="modal-body">
                     <?php if (!empty($project->posts)) : ?>
                         <ul class="list-group">
                             <?php foreach ($project->posts as $post): ?>
-                                <li class="list-group-item bg-dark text-light py-3">
+                                <li class="list-group-item bg-dark text-light py-3 my-2">
                                     <div class="d-flex align-items-center justify-content-between">
                                         <div class="flex-grow-1 pe-3">
                                             <?= $this->Html->link(
@@ -113,9 +116,9 @@ $this->assign('title', $project->title);
                                             <div class="mt-2 text-muted">
                                                 <?php
                                                 $twoLineTeaser = $this->Project->extractTwoLineTeaser($post->text);
-                                                echo $twoLineTeaser[0];
+                                                echo h($twoLineTeaser[0]);
                                                 echo '<br>';
-                                                echo $twoLineTeaser[1];
+                                                echo h($twoLineTeaser[1]);
                                                 ?>
                                             </div>
                                         </div>

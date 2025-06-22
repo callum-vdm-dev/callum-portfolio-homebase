@@ -3091,8 +3091,32 @@ input, select, textarea {
     align-items: center;
     white-space: nowrap;
 }
+/* Modal header background and subtle border */
+.modal-header {
+    background-color: rgba(33, 37, 41, 0.6); /* Bootstrap dark shade with 60% opacity */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 1.25rem 1.5rem;
+    backdrop-filter: blur(4px); /* Optional for a frosted-glass vibe */
+}
 
+/* Close button styling */
+.modal-header .btn-close,
+.modal-header .btn-square {
+    background-color: rgba(255, 255, 255, 0.08);
+    border-radius: 0.5rem;
+    padding: 0.65rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease;
+}
 
+.modal-header .btn-close:hover,
+.modal-header .btn-square:hover {
+    background-color: rgba(255, 255, 255, 0.18);
+}
 /* Header */
 
 #header {
