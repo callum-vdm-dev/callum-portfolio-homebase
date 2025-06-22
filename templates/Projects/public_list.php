@@ -64,7 +64,7 @@ $this->assign('title', 'Projects');
                             </p>
                         </div>
                         <div class="card-footer bg-transparent border-top-0">
-                            <div class="d-flex justify-content-center gap-2">
+                            <div class="d-flex justify-content-between">
                                 <?php if ($project->live_url): ?>
                                     <a href="<?= h($project->live_url) ?>" target="_blank" class="btn btn-primary btn-sm">
                                         Live Demo

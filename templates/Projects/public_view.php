@@ -44,6 +44,11 @@ $this->assign('title', $project->title);
                         </a>
                     </li>
                 <?php endif ?>
+                <?php if(!empty($project->posts)): ?>
+                <li class="list-inline-item">
+                    <a href="" target="_blank" class="btn btn-outline-secondary btn-lg" data-bs-toggle="modal" data-bs-target="#relatedPostsModal">Related Posts</a>
+                </li>
+                <?php endif ?>
             </ul>
         </div>
 
@@ -80,4 +85,30 @@ $this->assign('title', $project->title);
             ]) ?>
         </div>
         </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="relatedPostsModal" tabindex="-1" aria-labelledby="relatedPostsModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content bg-dark text-light">
+                <div class="modal-header border-0">
+                    <h3 class="modal-title" id="relatedPostsModalLabel">Related Blog Posts</h3>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <?php if (!empty($project->posts)) : ?>
+                        <ul class="list-group">
+                            <?php foreach ($project->posts as $post): ?>
+                                <li class="list-group-item bg-dark text-light">
+                                    <?= $this->Html->link(h($post->title), ['controller' => 'Posts', 'action' => 'view', $post->id], ['class' => 'text-white']) ?>
+                                    <div><small class="text-muted"><?= h($post->created) ?></small></div>
+                                </li>
+                            <?php endforeach; ?>
+                        </ul>
+                    <?php else: ?>
+                        <p class="text-center text-muted mb-0">No related posts found.</p>
+                    <?php endif; ?>
+                </div>
+            </div>
+        </div>
+    </div>
 </section>

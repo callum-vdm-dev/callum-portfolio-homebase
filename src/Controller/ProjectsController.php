@@ -157,7 +157,11 @@ class ProjectsController extends AppController
         $this->viewBuilder()->setLayout('public');
 
         $project = $this->Projects->find()
-            ->contain(['Users', 'Posts', 'ProjectPhotos'])
+            ->contain(['Users',
+                'Posts' => function ($q) {
+                    return $q->where(['Posts.status' => 'published']);
+                }
+                , 'ProjectPhotos'])
             ->where([
                 'Projects.id'     => $id,
                 'Projects.status !='=> 'archived'
