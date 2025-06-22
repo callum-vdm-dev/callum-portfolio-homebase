@@ -3048,15 +3048,6 @@ input, select, textarea {
     margin-bottom: 3rem;
 }
 
-.project-card h3 {
-    margin-top: 1rem;
-    font-size: 1.5rem;
-}
-
-.project-card p {
-    font-size: 1rem;
-}
-
 /* Content Pages (view project and view blog) */
 .content-dark {
     background-color: #111;        /* Very dark, not quite pure black */
@@ -3090,7 +3081,11 @@ input, select, textarea {
 
 .project-meta span {
     margin-right: 1rem;
+    display: inline-flex;
+    align-items: center;
+    white-space: nowrap;
 }
+
 
 /* Header */
 
