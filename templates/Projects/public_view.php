@@ -98,9 +98,33 @@ $this->assign('title', $project->title);
                     <?php if (!empty($project->posts)) : ?>
                         <ul class="list-group">
                             <?php foreach ($project->posts as $post): ?>
-                                <li class="list-group-item bg-dark text-light">
-                                    <?= $this->Html->link(h($post->title), ['controller' => 'Posts', 'action' => 'view', $post->id], ['class' => 'text-white']) ?>
-                                    <div><small class="text-muted"><?= h($post->created) ?></small></div>
+                                <li class="list-group-item bg-dark text-light py-3">
+                                    <div class="d-flex align-items-center justify-content-between">
+                                        <div class="flex-grow-1 pe-3">
+                                            <?= $this->Html->link(
+                                                h($post->title),
+                                                ['controller' => 'Posts', 'action' => 'view', $post->id],
+                                                ['class' => 'text-white fw-bold']
+                                            ) ?>
+                                            <div class="mt-1">
+                                                <i class="fa fa-calendar-alt me-2 text-muted"></i>
+                                                <small class="text-muted"><?= h($post->created->format('Y-m-d')) ?></small>
+                                            </div>
+                                            <div class="mt-2 text-muted">
+                                                <?php
+                                                $twoLineTeaser = $this->Project->extractTwoLineTeaser($post->text);
+                                                echo $twoLineTeaser[0];
+                                                echo '<br>';
+                                                echo $twoLineTeaser[1];
+                                                ?>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <a href="<?= $this->Url->build(['controller' => 'Posts', 'action' => 'view', $post->id]) ?>" class="btn btn-outline-light btn-square">
+                                                <i class="fa fa-arrow-right"></i>
+                                            </a>
+                                        </div>
+                                    </div>
                                 </li>
                             <?php endforeach; ?>
                         </ul>
