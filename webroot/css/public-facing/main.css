@@ -3043,6 +3043,12 @@ input, select, textarea {
     transform: translateY(-5px);
 }
 
+.card-footer a {
+    position: relative;
+    z-index: 10;
+    pointer-events: auto;
+}
+
 .section-header {
     text-align: center;
     margin-bottom: 3rem;
