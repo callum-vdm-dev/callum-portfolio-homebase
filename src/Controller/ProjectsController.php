@@ -11,6 +11,11 @@ namespace App\Controller;
 class ProjectsController extends AppController
 {
 
+    public function initialize(): void {
+        parent::initialize();
+        $this->viewBuilder()->setHelpers(['Project']);
+    }
+
     public function beforeFilter(\Cake\Event\EventInterface $event)
     {
         parent::beforeFilter($event);

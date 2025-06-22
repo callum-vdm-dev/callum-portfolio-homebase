@@ -56,13 +56,11 @@ $this->assign('title', 'Projects');
                                                     <span>
                         <i class="fa fa-user me-2"></i>
                         <span class="mx-1"></span>
-                        <span><?= h($project->user->name ?? '—') ?></span>
+                        <span><?= h($project->user->name ?? '-') ?></span>
                       </span>
                 </div>
-
-                            <!-- Optional Overview (truncated) -->
                             <p class="card-text mt-auto">
-                                <?= h($this->Text->truncate($project->overview, 150)) ?>
+                                <?= h($this->Project->extractSummaryAfterHeading($project->overview), 150) ?>
                             </p>
                         </div>
                         <div class="card-footer bg-transparent border-top-0">

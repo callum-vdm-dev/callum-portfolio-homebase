@@ -19,9 +19,9 @@ $this->assign('title', $project->title);
           echo h(ucfirst($project->status));
       }      ?>
     </span>
-                <span><strong>Started:</strong> <?= h($project->start_date->format('Y-m-d')) ?></span>
+                <span><strong>Started:</strong> <?= $project->start_date ? h($project->start_date->format('Y-m-d')) : '-' ?></span>
                 <span><strong>Updated:</strong> <?= h($project->modified->format('Y-m-d')) ?></span>
-                <span><strong>By:</strong> <?= h($project->user->name ?? '—') ?></span>
+                <span><strong>By:</strong> <?= h($project->user->name ?? '-') ?></span>
             </div>
         </div>
 
