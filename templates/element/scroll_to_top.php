@@ -1,13 +1,12 @@
-<a href="javascript:void(0);" id="scrollTopBtn" class="btn btn-primary btn-lg-square rounded-circle">
+<a href="javascript:void(0);" id="scrollTopBtn" class="scroll-top-btn">
     <i class="fa fa-arrow-up"></i>
 </a>
 
 <style>
-    #scrollTopBtn {
+    .scroll-top-btn {
         position: fixed;
         bottom: 30px;
         right: 30px;
-        display: none;
         background-color: #007bff;
         color: white;
         border: none;
@@ -17,10 +16,19 @@
         cursor: pointer;
         z-index: 999;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        transition: background 0.3s ease;
+        transition: transform 0.4s ease, opacity 0.4s ease;
+        opacity: 0;
+        transform: translateX(150%);
+        pointer-events: none;
     }
 
-    #scrollTopBtn:hover {
+    .scroll-top-btn.visible {
+        opacity: 1;
+        transform: translateX(0);
+        pointer-events: auto;
+    }
+
+    .scroll-top-btn:hover {
         background-color: #0056b3;
     }
 </style>
@@ -29,16 +37,16 @@
     document.addEventListener('DOMContentLoaded', function () {
         const scrollBtn = document.getElementById('scrollTopBtn');
 
-        // Show the button near the bottom of the page
+        // Toggle visibility on scroll
         window.addEventListener('scroll', function () {
-            if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 100) {
-                scrollBtn.style.display = 'block';
+            if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 500) {
+                scrollBtn.classList.add('visible');
             } else {
-                scrollBtn.style.display = 'none';
+                scrollBtn.classList.remove('visible');
             }
         });
 
-        // Custom smooth scroll function
+        // Slow scroll to top
         function slowScrollToTop(duration = 1000) {
             const start = window.scrollY;
             const startTime = performance.now();
@@ -60,7 +68,7 @@
 
         scrollBtn.addEventListener('click', function (e) {
             e.preventDefault();
-            slowScrollToTop(2500); //change this for different scroll speeds
+            slowScrollToTop(2500); //change this for scroll amount of time
         });
     });
 </script>
