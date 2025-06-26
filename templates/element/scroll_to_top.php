@@ -7,7 +7,7 @@
         position: fixed;
         bottom: 30px;
         right: 30px;
-        background-color: #007bff;
+        background-color: #555;
         color: white;
         border: none;
         padding: 12px 16px;
@@ -16,10 +16,11 @@
         cursor: pointer;
         z-index: 999;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        transition: transform 0.4s ease, opacity 0.4s ease;
+        transition: transform 0.4s ease, opacity 0.4s ease, background-color 0.3s ease;
         opacity: 0;
         transform: translateX(150%);
         pointer-events: none;
+
     }
 
     .scroll-top-btn.visible {
@@ -29,7 +30,7 @@
     }
 
     .scroll-top-btn:hover {
-        background-color: #0056b3;
+        background-color: #777;
     }
 </style>
 
@@ -39,12 +40,17 @@
 
         // Toggle visibility on scroll
         window.addEventListener('scroll', function () {
-            if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 500) {
+            const scrollTop = window.scrollY;
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const scrollPercent = scrollTop / docHeight;
+
+            if (scrollPercent >= 0.80) { //appears 80% of the way down
                 scrollBtn.classList.add('visible');
             } else {
                 scrollBtn.classList.remove('visible');
             }
         });
+
 
         // Slow scroll to top
         function slowScrollToTop(duration = 1000) {
@@ -68,7 +74,7 @@
 
         scrollBtn.addEventListener('click', function (e) {
             e.preventDefault();
-            slowScrollToTop(2500); //change this for scroll amount of time
+            slowScrollToTop(2000); //change this for scroll amount of time
         });
     });
 </script>
