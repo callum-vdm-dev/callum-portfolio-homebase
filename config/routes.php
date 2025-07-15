@@ -80,7 +80,19 @@ return function (RouteBuilder $routes): void {
         $builder->fallbacks();
     });
 
+    $routes->connect('/blog/{slug}',
+        ['controller' => 'Posts', 'action' => 'publicView']
+    )
+        ->setPatterns(['slug' => '[a-z0-9\-]+'])
+        ->setPass(['slug']);
+
     $routes->connect('/blog', ['controller' => 'Posts', 'action' => 'publicList']);
+
+    $routes->connect('/projects/{slug}',
+        ['controller' => 'Projects', 'action' => 'publicView']
+    )
+        ->setPatterns(['slug' => '[a-z0-9\-]+'])
+        ->setPass(['slug']);
     $routes->connect('/projects', ['controller' => 'Projects', 'action' => 'publicList']);
 
     $routes->connect('/admin/projects', ['controller' => 'Projects', 'action' => 'index']);

@@ -152,20 +152,13 @@ class ProjectsController extends AppController
      * @param string|null $id Project id.
      * @throws \Cake\Http\Exception\NotFoundException When record not found or not published.
      */
-    public function publicView(?string $id = null): void
+    public function publicView(?string $slug = null): void
     {
         $this->viewBuilder()->setLayout('public');
 
         $project = $this->Projects->find()
-            ->contain(['Users',
-                'Posts' => function ($q) {
-                    return $q->where(['Posts.status' => 'published']);
-                }
-                , 'ProjectPhotos'])
-            ->where([
-                'Projects.id'     => $id,
-                'Projects.status !='=> 'archived'
-            ])
+            ->contain(['Users', 'Posts']) // Add associations as needed
+            ->where(['Projects.slug' => $slug, 'Projects.status !=' => 'archived'])
             ->first();
 
         if (!$project) {
@@ -174,8 +167,4 @@ class ProjectsController extends AppController
 
         $this->set(compact('project'));
     }
-
-
-
-
 }
