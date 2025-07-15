@@ -14,6 +14,16 @@ class PostsController extends AppController
     {
         parent::initialize();
     }
+
+    public function beforeFilter(\Cake\Event\EventInterface $event)
+    {
+        parent::beforeFilter($event);
+
+        // Allow unauthenticated access to the public pages
+        $this->Authentication
+            ->addUnauthenticatedActions(['publicList', 'publicView']);
+    }
+
     /**
      * Index method
      *
@@ -125,6 +135,25 @@ class PostsController extends AppController
 
         $this->viewBuilder()->setLayout('public');
         $this->set(compact('posts'));
+    }
+
+    public function publicView(?string $id = null): void
+    {
+        $this->viewBuilder()->setLayout('public');
+
+        $post = $this->Posts->find()
+            ->contain(['Users', 'Projects'])
+            ->where([
+                'Posts.id' => $id,
+                'Posts.status' => 'published'
+            ])
+            ->first();
+
+        if (!$post) {
+            throw new NotFoundException(__('Post not found or unavailable.'));
+        }
+
+        $this->set(compact('post'));
     }
 
     public function uploadImage()
