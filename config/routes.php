@@ -95,6 +95,7 @@ return function (RouteBuilder $routes): void {
         ->setPass(['slug']);
     $routes->connect('/projects', ['controller' => 'Projects', 'action' => 'publicList']);
 
+    //Explicit routing. Change to prefix routing if you want more scalability. This works for small systems.
     $routes->connect('/admin', ['controller' => 'Users', 'action' => 'dashboard']);
     $routes->connect('/admin/projects', ['controller' => 'Projects', 'action' => 'index']);
     $routes->connect('/admin/projects/add', ['controller' => 'Projects', 'action' => 'add']);
