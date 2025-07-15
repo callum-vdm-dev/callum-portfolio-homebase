@@ -111,6 +111,22 @@ class PostsController extends AppController
         return $this->redirect(['action' => 'index']);
     }
 
+    public function publicList(): void
+    {
+        $query = $this->Posts->find()
+            ->contain(['Users'])
+            ->where(['Posts.status' => 'published'])
+            ->order(['Posts.created' => 'DESC']);
+
+        $posts = $this->paginate($query, [
+            'limit'    => 6,
+            'maxLimit' => 12,
+        ]);
+
+        $this->viewBuilder()->setLayout('public');
+        $this->set(compact('posts'));
+    }
+
     public function uploadImage()
     {
         $this->request->allowMethod(['post']);
