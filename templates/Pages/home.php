@@ -144,7 +144,7 @@ $this->setLayout('public')
 
 
 <!-- Four -->
-<section id="four" class="main style1 special">
+<section id="contact" class="main style1 special">
     <div class="container">
         <header class="major">
             <h2>Get in Contact!</h2>
