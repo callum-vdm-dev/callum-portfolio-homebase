@@ -56,7 +56,7 @@
             <div class="sb-sidenav-menu">
                 <div class="nav">
                     <div class="sb-sidenav-menu-heading">Home</div>
-                    <a class="nav-link" href="<?= $this->Url->build(['controller' => 'Users', 'action' => 'dashboard']) ?>">
+                    <a class="nav-link" href="<?= $this->Url->build('/admin') ?>">
                         <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                         Dashboard
                     </a>

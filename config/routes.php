@@ -95,8 +95,25 @@ return function (RouteBuilder $routes): void {
         ->setPass(['slug']);
     $routes->connect('/projects', ['controller' => 'Projects', 'action' => 'publicList']);
 
+    $routes->connect('/admin', ['controller' => 'Users', 'action' => 'dashboard']);
     $routes->connect('/admin/projects', ['controller' => 'Projects', 'action' => 'index']);
+    $routes->connect('/admin/projects/add', ['controller' => 'Projects', 'action' => 'add']);
+    $routes->connect('/admin/projects/edit/*', ['controller' => 'Projects', 'action' => 'edit']);
+    $routes->connect('/admin/projects/view/*', ['controller' => 'Projects', 'action' => 'view']);
+
     $routes->connect('/admin/posts', ['controller' => 'Posts', 'action' => 'index']);
+    $routes->connect('/admin/posts/add', ['controller' => 'Posts', 'action' => 'add']);
+    $routes->connect('/admin/posts/edit/*', ['controller' => 'Posts', 'action' => 'edit']);
+    $routes->connect('/admin/posts/view/*', ['controller' => 'Posts', 'action' => 'view']);
+
+    $routes->connect('/admin/contents', ['controller' => 'Contents', 'action' => 'index']);
+    $routes->connect('/admin/contents/view/*', ['controller' => 'Contents', 'action' => 'view']);
+    $routes->connect('/admin/contents/edit/*', ['controller' => 'Contents', 'action' => 'edit']);
+
+    $routes->connect('/admin/users', ['controller' => 'Users', 'action' => 'index']);
+    $routes->connect('/admin/users/add', ['controller' => 'Users', 'action' => 'add']);
+    $routes->connect('/admin/users/edit/*', ['controller' => 'Users', 'action' => 'edit']);
+    $routes->connect('/admin/users/view/*', ['controller' => 'Users', 'action' => 'view']);
 
     /*
      * If you need a different set of middleware or none at all,
