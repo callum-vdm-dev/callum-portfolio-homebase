@@ -62,6 +62,8 @@ return function (RouteBuilder $routes): void {
          */
         $builder->connect('/pages/*', 'Pages::display');
 
+
+
         /*
          * Connect catchall routes for all controllers.
          *
@@ -77,6 +79,12 @@ return function (RouteBuilder $routes): void {
          */
         $builder->fallbacks();
     });
+
+    $routes->connect('/blog', ['controller' => 'Posts', 'action' => 'publicList']);
+    $routes->connect('/projects', ['controller' => 'Projects', 'action' => 'publicList']);
+
+    $routes->connect('/admin/projects', ['controller' => 'Projects', 'action' => 'index']);
+    $routes->connect('/admin/posts', ['controller' => 'Posts', 'action' => 'index']);
 
     /*
      * If you need a different set of middleware or none at all,
