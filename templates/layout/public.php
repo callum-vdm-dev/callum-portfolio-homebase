@@ -22,13 +22,17 @@
 <nav id="nav" class="custom-navbar">
     <ul>
         <li>
-            <a href="<?= $this->Url->build(['controller' => 'Pages', 'url' => '/']) ?>">Home</a>
+            <a href="<?= $this->Url->build('/') ?>">Home</a>
         </li>
         <li>
-            <a href="<?= $this->Url->build(['controller' => 'Projects', 'action' => 'index']) ?>">Projects</a>
+            <a href="<?= $this->Url->build('/projects') ?>">Projects</a>
         </li>
-        <li><a href="<?= $this->Url->build(['controller' => 'Posts', 'action' => 'index']) ?>">Blog</a></li>
-        <li class="break"><a href="#contact">Contact</a></li>
+        <li>
+            <a href="<?= $this->Url->build('/blog') ?>">Blog</a>
+        </li>
+        <li class="break">
+            <a href="#contact" class="scroll-to-contact">Contact</a>
+        </li>
     </ul>
 </nav>
 
@@ -60,5 +64,31 @@
 <?= $this->Html->script('public-facing/breakpoints.min.js') ?>
 <?= $this->Html->script('public-facing/util.js') ?>
 <?= $this->Html->script('public-facing/main.js') ?>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const contactLink = document.querySelector('.scroll-to-contact');
+
+        if (contactLink) {
+            contactLink.addEventListener('click', function (e) {
+                const currentPath = window.location.pathname;
+                const isHome = currentPath === '/' || currentPath === '<?= $this->Url->build('/') ?>';
+
+                if (isHome) {
+                    // Already on homepage scroll nicely to #contact
+                    e.preventDefault();
+                    const contactSection = document.getElementById('contact');
+                    if (contactSection) {
+                        contactSection.scrollIntoView({ behavior: 'smooth' });
+                    }
+                } else {
+                    // Not on homepage go to homepage
+                    contactLink.setAttribute('href', '<?= $this->Url->build('/') ?>#contact');
+                }
+            });
+        }
+    });
+</script>
+
 </body>
 </html>

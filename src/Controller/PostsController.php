@@ -137,16 +137,13 @@ class PostsController extends AppController
         $this->set(compact('posts'));
     }
 
-    public function publicView(?string $id = null): void
+    public function publicView(string $slug): void
     {
         $this->viewBuilder()->setLayout('public');
 
         $post = $this->Posts->find()
             ->contain(['Users', 'Projects'])
-            ->where([
-                'Posts.id' => $id,
-                'Posts.status' => 'published'
-            ])
+            ->where(['Posts.slug' => $slug, 'Posts.status' => 'published'])
             ->first();
 
         if (!$post) {

@@ -23,7 +23,7 @@ $this->assign('title', 'Blog');
                             <h3 class="card-title">
                                 <?= $this->Html->link(
                                     h($post->title),
-                                    ['action' => 'publicView', $post->id],
+                                    ['action' => 'publicView', $post->slug],
                                     ['class' => 'stretched-link text-white text-decoration-none']
                                 ) ?>
                             </h3>

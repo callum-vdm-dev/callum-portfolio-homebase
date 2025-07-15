@@ -32,7 +32,7 @@ $this->assign('title', 'Projects');
                                 <h3 class="card-title mb-0">
                                     <?= $this->Html->link(
                                         h($project->title),
-                                        ['action' => 'publicView', $project->id],
+                                        ['action' => 'publicView', $project->slug],
                                         ['class' => 'stretched-link text-decoration-none text-white']
                                     ) ?>
                                 </h3>
