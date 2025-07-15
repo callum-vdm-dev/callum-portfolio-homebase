@@ -2,6 +2,7 @@
 /**
  * @var \App\View\AppView $this
  * @var \Cake\Datasource\ResultSetInterface|\App\Model\Entity\Project[] $projects
+ * @var $projectsContent
  */
 $this->assign('title', 'Projects');
 ?>
@@ -10,8 +11,8 @@ $this->assign('title', 'Projects');
     <div class="container">
         <!-- Page Header -->
         <header class="text-center mb-5">
-            <h1 class="display-4">Projects</h1>
-            <p class="lead">A showcase of my work</p>
+            <h1 class="display-4"><?= $projectsContent['title'] ?? 'Projects' ?></h1>
+            <p class="lead"><?= $projectsContent['intro'] ?? 'See what I have done!' ?></p>
         </header>
 
         <!-- Projects Grid -->

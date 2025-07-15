@@ -32,6 +32,12 @@ use Cake\View\Exception\MissingTemplateException;
  */
 class PagesController extends AppController
 {
+    public function initialize(): void
+    {
+        parent::initialize();
+        $this->loadComponent('Content');
+    }
+
     public function beforeFilter(EventInterface|\Cake\Event\EventInterface $event)
     {
         parent::beforeFilter($event);
@@ -72,7 +78,7 @@ class PagesController extends AppController
             $contents = TableRegistry::getTableLocator()->get('Contents');
             $homepageContentsRaw = $contents->find()
                 ->where(['slug' => 'homepage'])->all();
-            $homepageContents = $this->prepareContents($homepageContentsRaw);
+            $homepageContents = $this->Content->prepareContents($homepageContentsRaw);
             $this->set(compact('homepageContents'));
         }
 
@@ -84,14 +90,5 @@ class PagesController extends AppController
             }
             throw new NotFoundException();
         }
-    }
-
-    private function prepareContents($collection): array
-    {
-        $contents = [];
-        foreach ($collection as $item) {
-            $contents[$item->title] = $item->content;
-        }
-        return $contents;
     }
 }
