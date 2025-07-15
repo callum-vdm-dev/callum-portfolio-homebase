@@ -64,7 +64,14 @@ INSERT INTO `contents` (`id`, `slug`, `title`, `content`, `modified`) VALUES
 (22, 'homepage', 'blog_3_title', 'My Third Post', '2025-06-19 04:52:07'),
 (23, 'homepage', 'blog_3_text', 'A brief description about my third post.', '2025-06-19 04:52:27'),
 (24, 'homepage', 'blog_button', 'Read More', '2025-06-19 04:54:01'),
-(25, 'homepage', 'blog_all_button', 'View All Posts', '2025-06-19 04:55:15');
+(25, 'homepage', 'blog_all_button', 'View All Posts', '2025-06-19 04:55:15'),
+(26, 'projects', 'title', 'My Projects', '2025-07-16 01:15:02'),
+(27, 'projects', 'intro', 'View my ongoing and completed projects', '2025-07-15 15:18:31'),
+(28, 'posts', 'title', 'My Blog', '2025-07-15 15:22:48'),
+(29, 'posts', 'intro', 'Take a look at cool things I\'m working on, and interesting things I\'ve learnt!', '2025-07-15 15:23:49'),
+(30, 'footer', 'GitHub', '<p>https://github.com</p>', '2025-07-15 16:00:18'),
+(31, 'footer', 'Email', '<p>example@example.com</p>', '2025-07-15 15:59:56'),
+(32, 'footer', 'copyright', '<p>Not yet set</p>', '2025-07-15 15:56:03');
 
 -- --------------------------------------------------------
 
