@@ -7,7 +7,7 @@ $this->setLayout('public')
 <!-- Header -->
 <section id="header">
     <div class="inner">
-        <span class="icon solid major fa-cloud"></span>
+        <span class="icon solid major fa-code"></span>
 <!--        hero_title-->
         <h1><?= $homepageContents['hero_title'] ?? 'Welcome!' ?></h1>
         <p><?= $homepageContents['hero_text'] ?? 'Have a look around!' ?></p>
@@ -39,91 +39,112 @@ $this->setLayout('public')
 <!-- Two -->
 <section id="projects" class="main style2">
     <div class="container">
-        <header class="major special">
-            <h2><?= $homepageContents['projects_title']??'My Projects' ?></h2>
-            <p><?= $homepageContents['projects_text']??'Featured projects I have worked on'?></p>
-        </header>
+        <div class="card section-header">
+            <header class="major special">
+                <h2><?= $homepageContents['projects_title'] ?? 'My Projects' ?></h2>
+                <p><?= $homepageContents['projects_text'] ?? 'Featured projects I have worked on' ?></p>
+            </header>
+        </div>
+
         <div class="row gtr-150">
             <div class="col-6 col-12-medium">
-                <span class="image fit">
-                    <img src="images/project-1.jpg" alt="Project 1" />
-                </span>
-                <h3><?= $homepageContents['projects_1_title']??'First Project' ?></h3>
-                <p><?= $homepageContents['projects_1_text']??'Text about my first project' ?></p>
-                <ul class="actions" style="display: flex; justify-content: center;">
-<!--                    TODO link to project 1-->
-<!--                    --><?php //= $homepageContents['projects_1_slug']??''?>
-                    <li><a href="/projects/view/1" class="button">
-                            <?= $homepageContents['projects_button']??'View' ?>
-                        </a></li>
-                </ul>
+                <div class="card project-card">
+                    <span class="image fit">
+                        <img src="images/project-1.jpg" alt="Project 1" />
+                    </span>
+                    <h3><?= $homepageContents['projects_1_title'] ?? 'First Project' ?></h3>
+                    <p><?= $homepageContents['projects_1_text'] ?? 'Text about my first project' ?></p>
+                    <ul class="actions" style="display: flex; justify-content: center;">
+                        <li><a href="/projects/view/1" class="button">
+                                <?= $homepageContents['projects_button'] ?? 'View' ?>
+                            </a></li>
+                    </ul>
+                </div>
             </div>
+
             <div class="col-6 col-12-medium">
-                <span class="image fit">
-                    <img src="images/project-2.jpg" alt="Project 2" />
-                </span>
-                <h3><?= $homepageContents['projects_2_title']??'Second Project' ?></h3>
-                <p><?= $homepageContents['projects_2_text']??'Text about my second project' ?></p>
-                <ul class="actions" style="display: flex; justify-content: center;">
-<!--                    TODO link to project 2-->
-<!--                    --><?php //= $homepageContents['projects_2_slug']??''?>
-                    <li><a href="/projects/view/2" class="button">
-                            <?= $homepageContents['projects_button']??'View' ?>
-                        </a></li>
-                </ul>
+                <div class="card project-card">
+                    <span class="image fit">
+                        <img src="images/project-2.jpg" alt="Project 2" />
+                    </span>
+                    <h3><?= $homepageContents['projects_2_title'] ?? 'Second Project' ?></h3>
+                    <p><?= $homepageContents['projects_2_text'] ?? 'Text about my second project' ?></p>
+                    <ul class="actions" style="display: flex; justify-content: center;">
+                        <li><a href="/projects/view/2" class="button">
+                                <?= $homepageContents['projects_button'] ?? 'View' ?>
+                            </a></li>
+                    </ul>
+                </div>
             </div>
         </div>
+
         <footer class="major">
             <ul class="actions special">
                 <li><a href="projects" class="button primary">
-                        <?= $homepageContents['projects_all_button']??'See All Projects' ?>
+                        <?= $homepageContents['projects_all_button'] ?? 'See All Projects' ?>
                     </a></li>
             </ul>
         </footer>
     </div>
 </section>
 
+
 <!-- Three -->
-<section id="blog" class="main style1 special">
+<section id="blog" class="main style2 special">
     <div class="container">
-        <header class="major">
-            <h2><?= $homepageContents['blog_title']??'Blog Posts' ?></h2>
-            <p><?= $homepageContents['blog_text']??'See what I have been posting' ?></p>
-        </header>
+        <div class="card section-header">
+            <header class="major">
+                <h2><?= $homepageContents['blog_title'] ?? 'Blog Posts' ?></h2>
+                <p><?= $homepageContents['blog_text'] ?? 'See what I have been posting' ?></p>
+            </header>
+        </div>
+
         <div class="row gtr-150">
             <div class="col-4 col-12-medium">
-                <h3><?= $homepageContents['blog_1_title']??'Post 1' ?></h3>
-                <p><?= $homepageContents['blog_1_text']??'Text about the first post' ?></p>
-                <ul class="actions special">
-                    <li><a href="/blog/view/1" class="button"><?= $homepageContents['blog_button']??'Read' ?></a></li>
-                </ul>
+                <div class="card blog-card">
+                    <h3><?= $homepageContents['blog_1_title'] ?? 'Post 1' ?></h3>
+                    <p><?= $homepageContents['blog_1_text'] ?? 'Text about the first post' ?></p>
+                    <ul class="actions special">
+                        <li><a href="/blog/view/1" class="button"><?= $homepageContents['blog_button'] ?? 'Read' ?></a></li>
+                    </ul>
+                </div>
             </div>
+
             <div class="col-4 col-12-medium">
-                <h3><?= $homepageContents['blog_2_title']??'Post 2' ?></h3>
-                <p><?= $homepageContents['blog_2_text']??'Text about the second post' ?></p>
-                <ul class="actions special">
-                    <li><a href="/blog/view/2" class="button"><?= $homepageContents['blog_button']??'Read' ?></a></li>
-                </ul>
+                <div class="card blog-card">
+                    <h3><?= $homepageContents['blog_2_title'] ?? 'Post 2' ?></h3>
+                    <p><?= $homepageContents['blog_2_text'] ?? 'Text about the second post' ?></p>
+                    <ul class="actions special">
+                        <li><a href="/blog/view/2" class="button"><?= $homepageContents['blog_button'] ?? 'Read' ?></a></li>
+                    </ul>
+                </div>
             </div>
+
             <div class="col-4 col-12-medium">
-                <h3><?= $homepageContents['blog_3_title']??'Post 3' ?></h3>
-                <p><?= $homepageContents['blog_3_text']??'Text about the third post' ?></p>
-                <ul class="actions special">
-                    <li><a href="/blog/view/3" class="button"><?= $homepageContents['blog_button']??'Read' ?></a></li>
-                </ul>
+                <div class="card blog-card">
+                    <h3><?= $homepageContents['blog_3_title'] ?? 'Post 3' ?></h3>
+                    <p><?= $homepageContents['blog_3_text'] ?? 'Text about the third post' ?></p>
+                    <ul class="actions special">
+                        <li><a href="/blog/view/3" class="button"><?= $homepageContents['blog_button'] ?? 'Read' ?></a></li>
+                    </ul>
+                </div>
             </div>
         </div>
+
         <footer class="major">
             <ul class="actions special">
-                <li><a href="/blog" class="button primary"><?= $homepageContents['blog_all_button']??'See All Posts' ?></a></li>
+                <li><a href="/blog" class="button primary">
+                        <?= $homepageContents['blog_all_button'] ?? 'See All Posts' ?>
+                    </a></li>
             </ul>
         </footer>
     </div>
 </section>
 
 
+
 <!-- Four -->
-<section id="four" class="main style2 special">
+<section id="four" class="main style1 special">
     <div class="container">
         <header class="major">
             <h2>Get in Contact!</h2>

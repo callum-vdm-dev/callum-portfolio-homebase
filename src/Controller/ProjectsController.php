@@ -10,6 +10,21 @@ namespace App\Controller;
  */
 class ProjectsController extends AppController
 {
+
+    public function initialize(): void {
+        parent::initialize();
+        $this->viewBuilder()->setHelpers(['Project']);
+    }
+
+    public function beforeFilter(\Cake\Event\EventInterface $event)
+    {
+        parent::beforeFilter($event);
+
+        // Allow unauthenticated access to the public pages
+        $this->Authentication
+            ->addUnauthenticatedActions(['publicList', 'publicView']);
+    }
+
     /**
      * Index method
      *
@@ -104,4 +119,63 @@ class ProjectsController extends AppController
 
         return $this->redirect(['action' => 'index']);
     }
+
+    /**
+     * publicList method
+     *
+     * Shows a grid of all published projects on the public site.
+     */
+    public function publicList(): void
+    {
+        $query = $this->Projects->find()
+            ->contain(['Users'])
+            // Exclude archived projects:
+            ->where(['Projects.status !=' => 'archived'])
+            ->order(['Projects.start_date' => 'DESC']);
+
+        $projects = $this->paginate($query, [
+            'limit'    => 12,
+            'maxLimit' => 24,
+        ]);
+
+        $this->viewBuilder()->setLayout('public');
+        $this->set(compact('projects'));
+    }
+
+
+
+    /**
+     * publicView method
+     *
+     * Shows one project’s detail page on the public site.
+     *
+     * @param string|null $id Project id.
+     * @throws \Cake\Http\Exception\NotFoundException When record not found or not published.
+     */
+    public function publicView(?string $id = null): void
+    {
+        $this->viewBuilder()->setLayout('public');
+
+        $project = $this->Projects->find()
+            ->contain(['Users',
+                'Posts' => function ($q) {
+                    return $q->where(['Posts.status' => 'published']);
+                }
+                , 'ProjectPhotos'])
+            ->where([
+                'Projects.id'     => $id,
+                'Projects.status !='=> 'archived'
+            ])
+            ->first();
+
+        if (!$project) {
+            throw new NotFoundException(__('Project not found or unavailable.'));
+        }
+
+        $this->set(compact('project'));
+    }
+
+
+
+
 }

@@ -9,32 +9,23 @@
     <title>Photon by HTML5 UP</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+
     <?= $this->Html->css('public-facing/main.css') ?>
     <noscript>
         <?= $this->Html->css('public-facing/noscript.css') ?>
     </noscript>
 </head>
-<body class="is-preload">
+<body class="is-preload" id="test">
 <!-- Nav -->
 <nav id="nav" class="custom-navbar">
     <ul>
         <li>
+            <a href="<?= $this->Url->build(['controller' => 'Pages', 'url' => '/']) ?>">Home</a>
+        </li>
+        <li>
             <a href="<?= $this->Url->build(['controller' => 'Projects', 'action' => 'index']) ?>">Projects</a>
-            <ul>
-                <li><a href="#">Lorem ipsum dolor</a></li>
-                <li><a href="#">Magna phasellus</a></li>
-                <li><a href="#">Etiam dolore nisl</a></li>
-                <li>
-                    <a href="#">Phasellus consequat</a>
-                    <ul>
-                        <li><a href="#">Lorem ipsum dolor</a></li>
-                        <li><a href="#">Phasellus consequat</a></li>
-                        <li><a href="#">Magna phasellus</a></li>
-                        <li><a href="#">Etiam dolore nisl</a></li>
-                    </ul>
-                </li>
-                <li><a href="#">Veroeros feugiat</a></li>
-            </ul>
         </li>
         <li><a href="<?= $this->Url->build(['controller' => 'Posts', 'action' => 'index']) ?>">Blog</a></li>
         <li class="break"><a href="#contact">Contact</a></li>
@@ -56,6 +47,11 @@
         <li>&copy; Untitled</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
     </ul>
 </section>
+<?= $this->element('scroll_to_top') ?>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
 
 <!-- Scripts -->
 <?= $this->Html->script('public-facing/jquery.min.js') ?>
