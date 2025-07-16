@@ -2942,7 +2942,7 @@ input, select, textarea {
     background-attachment: fixed, fixed;
     background-image:
         linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
-        url("../../images/header.jpg");
+        url("../../images/background.jpg");
     background-size: cover;
     background-position: center;
 		}

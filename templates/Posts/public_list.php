@@ -2,6 +2,7 @@
 /**
  * @var \App\View\AppView $this
  * @var \Cake\Datasource\ResultSetInterface|\App\Model\Entity\BlogPost[] $posts
+ * @var postsContent
  */
 $this->assign('title', 'Blog');
 ?>
@@ -10,8 +11,8 @@ $this->assign('title', 'Blog');
     <div class="container">
         <!-- Page Header -->
         <header class="text-center mb-5">
-            <h1 class="display-4">Blog</h1>
-            <p class="lead">Take a look at cool things I'm working on, and interesting things I've learnt!</p>
+            <h1 class="display-4"><?= $postsContent['title'] ?? 'Posts' ?></h1>
+            <p class="lead"><?= $postsContent['intro'] ?? 'View my personal blog!' ?></p>
         </header>
 
         <!-- Post List -->

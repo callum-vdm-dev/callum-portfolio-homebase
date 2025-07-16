@@ -18,11 +18,6 @@
 
     <div class="mb-3 d-flex justify-content-end gap-2">
         <?= $this->Html->link(__('Edit Content'), ['action' => 'edit', $content->id], ['class' => 'btn btn-primary']) ?>
-        <?= $this->Form->postLink(__('Delete Content'), ['action' => 'delete', $content->id], [
-            'confirm' => __('Are you sure you want to delete # {0}?', $content->id),
-            'class'   => 'btn btn-danger'
-        ]) ?>
-        <?= $this->Html->link(__('New Content'), ['action' => 'add'], ['class' => 'btn btn-success']) ?>
     </div>
 
     <div class="card mb-4">
@@ -50,9 +45,20 @@
             </table>
 
             <h5 class="mt-4"><?= __('Content') ?></h5>
-            <blockquote class="blockquote p-3 bg-light border rounded">
-                <?= $content->content ?>
-            </blockquote>
+            <?php if ($content->type === 'image'): ?>
+                <?php if (!empty($content->content)): ?>
+                    <img src="<?= $this->Url->build('/images/' . h($content->content)) ?>"
+                         alt="<?= h($content->title) ?>"
+                         class="img-fluid mb-3"
+                         style="max-height: 300px;">
+                <?php else: ?>
+                    <p class="text-muted fst-italic">No image uploaded yet.</p>
+                <?php endif; ?>
+            <?php else: ?>
+                <blockquote class="blockquote p-3 bg-light border rounded">
+                    <?= $content->content ?>
+                </blockquote>
+            <?php endif; ?>
         </div>
     </div>
 </div>

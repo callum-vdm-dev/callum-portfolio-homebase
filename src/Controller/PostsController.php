@@ -3,6 +3,8 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
+use Cake\ORM\TableRegistry;
+
 /**
  * Posts Controller
  *
@@ -123,6 +125,14 @@ class PostsController extends AppController
 
     public function publicList(): void
     {
+        $this->loadComponent('Content');
+
+        $contents = TableRegistry::getTableLocator()->get('Contents');
+        $contentRaw = $contents->find()
+            ->where(['slug' => 'posts'])->all();
+        $postsContent = $this->Content->prepareContents($contentRaw);
+        $this->set(compact('postsContent'));
+
         $query = $this->Posts->find()
             ->contain(['Users'])
             ->where(['Posts.status' => 'published'])

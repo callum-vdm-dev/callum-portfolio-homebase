@@ -3,6 +3,8 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
+use Cake\ORM\TableRegistry;
+
 /**
  * Projects Controller
  *
@@ -127,11 +129,21 @@ class ProjectsController extends AppController
      */
     public function publicList(): void
     {
+        $this->loadComponent('Content');
+
+        $contents = TableRegistry::getTableLocator()->get('Contents');
+        $contentRaw = $contents->find()
+            ->where(['slug' => 'projects'])->all();
+        $projectsContent = $this->Content->prepareContents($contentRaw);
+        $this->set(compact('projectsContent'));
+
         $query = $this->Projects->find()
             ->contain(['Users'])
             // Exclude archived projects:
             ->where(['Projects.status !=' => 'archived'])
             ->order(['Projects.start_date' => 'DESC']);
+
+
 
         $projects = $this->paginate($query, [
             'limit'    => 12,

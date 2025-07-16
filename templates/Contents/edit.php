@@ -20,44 +20,74 @@
         <div class="card-body">
             <?= $this->Form->create($content, [
                 'class' => 'row g-3',
-                'id'    => 'content-form'
+                'id'    => 'content-form',
+                'type'  => 'file'
             ]) ?>
 
             <div class="col-md-6">
-                <?= $this->Form->control('slug', [
-                    'class'       => 'form-control',
-                    'placeholder' => 'e.g. homepage',
-                    'label'       => 'Slug'
-                ]) ?>
+                <label class="form-label"><?= __('Slug') ?></label>
+                <input type="text" class="form-control" value="<?= h($content->slug) ?>" disabled>
             </div>
 
             <div class="col-md-6">
-                <?= $this->Form->control('title', [
-                    'class'       => 'form-control',
-                    'placeholder' => 'e.g. hero_title',
-                    'label'       => 'Title'
-                ]) ?>
+                <label class="form-label"><?= __('Title') ?></label>
+                <input type="text" class="form-control" value="<?= h($content->title) ?>" disabled>
             </div>
 
-            <div class="col-md-12">
-                <label for="editor-content" class="form-label"><?= __('Content') ?></label>
-                <?= $this->element('quill_editor_setup', [
-                    'editorId'       => 'editor-content',
-                    'fieldName'      => 'content',
-                    'initialContent' => $content->content ?? ''
-                ]) ?>
-            </div>
+            <?php if ($content->type === 'image'): ?>
+                <div class="col-md-12">
+                    <label class="form-label"><?= __('Current Image') ?></label><br>
+                    <?php if (!empty($content->content)): ?>
+                        <img src="<?= $this->Url->build('/images/'. h($content->content)) ?>"
+                             alt="<?= h($content->title) ?>"
+                             class="img-fluid mb-3"
+                             style="max-height: 300px;">
+                    <?php else: ?>
+                        <p class="text-muted fst-italic">No image uploaded yet.</p>
+                    <?php endif; ?>
+                </div>
+
+                <div class="col-md-12">
+                    <?= $this->Form->control('new_image', [
+                        'type'  => 'file',
+                        'label' => 'Replace Image',
+                        'class' => 'form-control',
+                        'required' => false
+                    ]) ?>
+                    <div class="form-text">Upload a new image to replace the current one. The filename will stay the same.</div>
+                </div>
+            <?php elseif ($content->type === 'link'): ?>
+                <div class="col-md-12">
+                    <?= $this->Form->control('content', [
+                        'type'        => 'url',
+                        'label'       => 'Link URL',
+                        'class'       => 'form-control',
+                        'placeholder' => 'https://example.com',
+                        'value'       => $content->content ?? ''
+                    ]) ?>
+                </div>
+            <?php elseif ($content->type === 'email'): ?>
+                <div class="col-md-12">
+                    <?= $this->Form->control('content', [
+                        'type'  => 'email',
+                        'label' => 'Email Address',
+                        'class' => 'form-control',
+                        'value' => $content->content ?? ''
+                    ]) ?>
+                </div>
+            <?php else: ?>
+                <div class="col-md-12">
+                    <label for="editor-content" class="form-label"><?= __('Content') ?></label>
+                    <?= $this->element('quill_editor_setup', [
+                        'editorId'       => 'editor-content',
+                        'fieldName'      => 'content',
+                        'initialContent' => $content->content ?? ''
+                    ]) ?>
+                </div>
+            <?php endif; ?>
 
             <div class="col-12 d-flex justify-content-between mt-4">
                 <?= $this->Form->button(__('Save Changes'), ['class' => 'btn btn-primary']) ?>
-                <?= $this->Form->postLink(
-                    __('Delete'),
-                    ['action' => 'delete', $content->id],
-                    [
-                        'confirm' => __('Are you sure you want to delete this content?'),
-                        'class'   => 'btn btn-danger'
-                    ]
-                ) ?>
                 <?= $this->Html->link(__('Cancel'), ['action' => 'index'], [
                     'class' => 'btn btn-secondary'
                 ]) ?>

@@ -30,7 +30,7 @@ $this->setLayout('public')
                 <p><?= $homepageContents['about_text']??'This is where I will tell my story.' ?></p>
             </div>
             <div class="col-6 col-12-medium imp-medium">
-                <span class="image fit"><img src="images/pic01.jpg" alt="" /></span>
+                <span class="image fit"><img src="images/about_me_picture.jpg" alt="" /></span>
             </div>
         </div>
     </div>

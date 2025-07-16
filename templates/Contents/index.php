@@ -7,7 +7,6 @@
 <div class="container-fluid px-4">
     <div class="d-flex justify-content-between align-items-center mt-4 mb-3">
         <h1 class="h3"><?= __('Content Blocks') ?></h1>
-        <?= $this->Html->link(__('New Content'), ['action' => 'add'], ['class' => 'btn btn-success']) ?>
     </div>
 
     <div class="card mb-4">
@@ -18,6 +17,7 @@
                     <th><?= $this->Paginator->sort('id') ?></th>
                     <th><?= $this->Paginator->sort('slug') ?></th>
                     <th><?= $this->Paginator->sort('title') ?></th>
+                    <th><?= $this->Paginator->sort('type') ?></th>
                     <th><?= $this->Paginator->sort('modified') ?></th>
                     <th class="text-center"><?= __('Actions') ?></th>
                 </tr>
@@ -28,14 +28,22 @@
                         <td><?= $this->Number->format($content->id) ?></td>
                         <td><?= h($content->slug) ?></td>
                         <td><?= h($content->title) ?></td>
+                        <td class="text-center">
+                            <?php
+                            $icon = match ($content->type) {
+                                'text' => 'fa-align-left',
+                                'image' => 'fa-image',
+                                'link' => 'fa-link',
+                                'email' => 'fa-envelope',
+                                default => 'fa-question-circle'
+                            };
+                            ?>
+                            <i class="fas <?= $icon ?>" title="<?= h($content->type) ?>"></i>
+                        </td>
                         <td><?= h($content->modified) ?></td>
                         <td class="text-nowrap text-center">
                             <?= $this->Html->link(__('View'), ['action' => 'view', $content->id], ['class' => 'btn btn-sm btn-outline-primary me-1']) ?>
                             <?= $this->Html->link(__('Edit'), ['action' => 'edit', $content->id], ['class' => 'btn btn-sm btn-outline-secondary me-1']) ?>
-                            <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $content->id], [
-                                'confirm' => __('Are you sure you want to delete # {0}?', $content->id),
-                                'class' => 'btn btn-sm btn-outline-danger'
-                            ]) ?>
                         </td>
                     </tr>
                 <?php endforeach; ?>
