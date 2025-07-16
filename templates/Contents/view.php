@@ -18,7 +18,6 @@
 
     <div class="mb-3 d-flex justify-content-end gap-2">
         <?= $this->Html->link(__('Edit Content'), ['action' => 'edit', $content->id], ['class' => 'btn btn-primary']) ?>
-        <?= $this->Html->link(__('New Content'), ['action' => 'add'], ['class' => 'btn btn-success']) ?>
     </div>
 
     <div class="card mb-4">

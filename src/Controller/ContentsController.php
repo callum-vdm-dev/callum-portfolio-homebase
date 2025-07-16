@@ -40,28 +40,6 @@ class ContentsController extends AppController
     }
 
     /**
-     * Add method
-     *
-     * @return \Cake\Http\Response|null|void Redirects on successful add, renders view otherwise.
-     */
-    public function add()
-    {
-        $content = $this->Contents->newEmptyEntity();
-        if ($this->request->is('post')) {
-            $content = $this->Contents->patchEntity($content, $this->request->getData());
-            if ($this->Contents->save($content)) {
-                $this->Flash->success(__('The content has been saved.'));
-
-                return $this->redirect(['action' => 'index']);
-            }
-            $this->Flash->error(__('The content could not be saved. Please, try again.'));
-        }
-
-        $this->viewBuilder()->setLayout('admin');
-        $this->set(compact('content'));
-    }
-
-    /**
      * Edit method
      *
      * @param string|null $id Content id.

@@ -7,7 +7,6 @@
 <div class="container-fluid px-4">
     <div class="d-flex justify-content-between align-items-center mt-4 mb-3">
         <h1 class="h3"><?= __('Content Blocks') ?></h1>
-        <?= $this->Html->link(__('New Content'), ['action' => 'add'], ['class' => 'btn btn-success']) ?>
     </div>
 
     <div class="card mb-4">
