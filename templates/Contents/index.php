@@ -17,6 +17,7 @@
                     <th><?= $this->Paginator->sort('id') ?></th>
                     <th><?= $this->Paginator->sort('slug') ?></th>
                     <th><?= $this->Paginator->sort('title') ?></th>
+                    <th><?= $this->Paginator->sort('type') ?></th>
                     <th><?= $this->Paginator->sort('modified') ?></th>
                     <th class="text-center"><?= __('Actions') ?></th>
                 </tr>
@@ -27,6 +28,17 @@
                         <td><?= $this->Number->format($content->id) ?></td>
                         <td><?= h($content->slug) ?></td>
                         <td><?= h($content->title) ?></td>
+                        <td class="text-center">
+                            <?php
+                            $icon = match ($content->type) {
+                                'text' => 'fa-align-left',
+                                'image' => 'fa-image',
+                                'link' => 'fa-link',
+                                default => 'fa-question-circle'
+                            };
+                            ?>
+                            <i class="fas <?= $icon ?>" title="<?= h($content->type) ?>"></i>
+                        </td>
                         <td><?= h($content->modified) ?></td>
                         <td class="text-nowrap text-center">
                             <?= $this->Html->link(__('View'), ['action' => 'view', $content->id], ['class' => 'btn btn-sm btn-outline-primary me-1']) ?>
