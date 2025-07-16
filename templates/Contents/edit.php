@@ -56,6 +56,25 @@
                     ]) ?>
                     <div class="form-text">Upload a new image to replace the current one. The filename will stay the same.</div>
                 </div>
+            <?php elseif ($content->type === 'link'): ?>
+                <div class="col-md-12">
+                    <?= $this->Form->control('content', [
+                        'type'        => 'url',
+                        'label'       => 'Link URL',
+                        'class'       => 'form-control',
+                        'placeholder' => 'https://example.com',
+                        'value'       => $content->content ?? ''
+                    ]) ?>
+                </div>
+            <?php elseif ($content->type === 'email'): ?>
+                <div class="col-md-12">
+                    <?= $this->Form->control('content', [
+                        'type'  => 'email',
+                        'label' => 'Email Address',
+                        'class' => 'form-control',
+                        'value' => $content->content ?? ''
+                    ]) ?>
+                </div>
             <?php else: ?>
                 <div class="col-md-12">
                     <label for="editor-content" class="form-label"><?= __('Content') ?></label>

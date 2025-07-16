@@ -34,6 +34,7 @@
                                 'text' => 'fa-align-left',
                                 'image' => 'fa-image',
                                 'link' => 'fa-link',
+                                'email' => 'fa-envelope',
                                 default => 'fa-question-circle'
                             };
                             ?>
