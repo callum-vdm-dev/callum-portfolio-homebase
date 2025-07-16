@@ -41,7 +41,7 @@ CREATE TABLE `contents` (
 --
 
 INSERT INTO `contents` (`id`, `slug`, `title`, `content`, `modified`, `type`) VALUES
-(1, 'homepage', 'hero_title', '<p>Hey there! My name is </p><p><strong>DEFAULT DEFAULTSON</strong></p><p>, and this is my personal website! sss</p>', '2025-07-15 23:23:25', 'text'),
+(1, 'homepage', 'hero_title', '<p>Hey there! My name is <strong>DEFAULT DEFAULTSON</strong>, and this is my personal website</p>', '2025-07-16 00:38:31', 'text'),
 (2, 'homepage', 'hero_text', 'Have a look at what I am working on and cool projects I have completed!', '2025-06-19 04:07:46', 'text'),
 (3, 'homepage', 'hero_button_text', 'Check it out!', '2025-06-19 04:11:10', 'text'),
 (4, 'homepage', 'about_title', 'What I am about', '2025-06-19 04:14:36', 'text'),
@@ -60,7 +60,7 @@ INSERT INTO `contents` (`id`, `slug`, `title`, `content`, `modified`, `type`) VA
 (17, 'homepage', 'blog_text', 'Thoughts, guides, and things I\'ve been working on', '2025-06-19 04:41:32', 'text'),
 (18, 'homepage', 'blog_1_title', 'My First Post', '2025-06-19 04:48:59', 'text'),
 (19, 'homepage', 'blog_1_text', 'Brief description about the first post.', '2025-06-19 04:49:35', 'text'),
-(20, 'homepage', 'blog_2_title', 'My Second Post', '2025-06-19 04:49:53', 'text'),
+(20, 'homepage', 'blog_2_title', '<p>My Second Post</p>', '2025-07-16 00:36:59', 'text'),
 (21, 'homepage', 'blog_2_text', 'A brief description about the second post.', '2025-06-19 04:50:35', 'text'),
 (22, 'homepage', 'blog_3_title', 'My Third Post', '2025-06-19 04:52:07', 'text'),
 (23, 'homepage', 'blog_3_text', 'A brief description about my third post.', '2025-06-19 04:52:27', 'text'),
@@ -70,8 +70,8 @@ INSERT INTO `contents` (`id`, `slug`, `title`, `content`, `modified`, `type`) VA
 (27, 'projects', 'intro', 'View my ongoing and completed projects', '2025-07-15 15:18:31', 'text'),
 (28, 'posts', 'title', 'My Blog', '2025-07-15 15:22:48', 'text'),
 (29, 'posts', 'intro', 'Take a look at cool things I\'m working on, and interesting things I\'ve learnt!', '2025-07-15 15:23:49', 'text'),
-(30, 'footer', 'GitHub', '<p>https://github.com</p>', '2025-07-16 09:27:11', 'link'),
-(31, 'footer', 'Email', '<p>example@example.com</p>', '2025-07-16 09:27:06', 'link'),
+(30, 'footer', 'GitHub', 'https://github.com', '2025-07-16 00:47:09', 'link'),
+(31, 'footer', 'Email', 'example@example.com', '2025-07-16 00:49:39', 'email'),
 (32, 'footer', 'copyright', '<p>Not yet set</p>', '2025-07-15 15:56:03', 'text'),
 (33, 'homepage', 'about_image', 'about_me_picture.jpg', '2025-07-16 09:53:58', 'image'),
 (34, 'homepage', 'project_1_image', 'project-1.jpg', '2025-07-16 10:10:33', 'image'),
