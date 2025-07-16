@@ -32,10 +32,6 @@
                         <td class="text-nowrap text-center">
                             <?= $this->Html->link(__('View'), ['action' => 'view', $content->id], ['class' => 'btn btn-sm btn-outline-primary me-1']) ?>
                             <?= $this->Html->link(__('Edit'), ['action' => 'edit', $content->id], ['class' => 'btn btn-sm btn-outline-secondary me-1']) ?>
-                            <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $content->id], [
-                                'confirm' => __('Are you sure you want to delete # {0}?', $content->id),
-                                'class' => 'btn btn-sm btn-outline-danger'
-                            ]) ?>
                         </td>
                     </tr>
                 <?php endforeach; ?>

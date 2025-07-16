@@ -75,14 +75,6 @@
 
             <div class="col-12 d-flex justify-content-between mt-4">
                 <?= $this->Form->button(__('Save Changes'), ['class' => 'btn btn-primary']) ?>
-                <?= $this->Form->postLink(
-                    __('Delete'),
-                    ['action' => 'delete', $content->id],
-                    [
-                        'confirm' => __('Are you sure you want to delete this content?'),
-                        'class'   => 'btn btn-danger'
-                    ]
-                ) ?>
                 <?= $this->Html->link(__('Cancel'), ['action' => 'index'], [
                     'class' => 'btn btn-secondary'
                 ]) ?>

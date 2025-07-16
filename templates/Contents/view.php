@@ -18,10 +18,6 @@
 
     <div class="mb-3 d-flex justify-content-end gap-2">
         <?= $this->Html->link(__('Edit Content'), ['action' => 'edit', $content->id], ['class' => 'btn btn-primary']) ?>
-        <?= $this->Form->postLink(__('Delete Content'), ['action' => 'delete', $content->id], [
-            'confirm' => __('Are you sure you want to delete # {0}?', $content->id),
-            'class'   => 'btn btn-danger'
-        ]) ?>
         <?= $this->Html->link(__('New Content'), ['action' => 'add'], ['class' => 'btn btn-success']) ?>
     </div>
 

@@ -113,25 +113,4 @@ class ContentsController extends AppController
         $this->viewBuilder()->setLayout('admin');
         $this->set(compact('content'));
     }
-
-
-    /**
-     * Delete method
-     *
-     * @param string|null $id Content id.
-     * @return \Cake\Http\Response|null Redirects to index.
-     * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
-     */
-    public function delete($id = null)
-    {
-        $this->request->allowMethod(['post', 'delete']);
-        $content = $this->Contents->get($id);
-        if ($this->Contents->delete($content)) {
-            $this->Flash->success(__('The content has been deleted.'));
-        } else {
-            $this->Flash->error(__('The content could not be deleted. Please, try again.'));
-        }
-
-        return $this->redirect(['action' => 'index']);
-    }
 }
