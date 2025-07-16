@@ -57,7 +57,9 @@ class ContentsController extends AppController
             unset($data['new_image']);
 
             // Patch content entity with form data (excluding the file)
-            $content = $this->Contents->patchEntity($content, $data);
+            $content = $this->Contents->patchEntity($content, $data, [
+                'accessibleFields' => ['slug' => false, 'title' => false]
+            ]);
 
             // Handle image upload after patching
             if ($content->type === 'image') {

@@ -25,19 +25,13 @@
             ]) ?>
 
             <div class="col-md-6">
-                <?= $this->Form->control('slug', [
-                    'class'       => 'form-control',
-                    'placeholder' => 'e.g. homepage',
-                    'label'       => 'Slug'
-                ]) ?>
+                <label class="form-label"><?= __('Slug') ?></label>
+                <input type="text" class="form-control" value="<?= h($content->slug) ?>" disabled>
             </div>
 
             <div class="col-md-6">
-                <?= $this->Form->control('title', [
-                    'class'       => 'form-control',
-                    'placeholder' => 'e.g. hero_title',
-                    'label'       => 'Title'
-                ]) ?>
+                <label class="form-label"><?= __('Title') ?></label>
+                <input type="text" class="form-control" value="<?= h($content->title) ?>" disabled>
             </div>
 
             <?php if ($content->type === 'image'): ?>
