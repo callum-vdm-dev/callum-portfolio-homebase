@@ -83,7 +83,8 @@ INSERT INTO `contents` (`id`, `slug`, `title`, `content`, `modified`, `type`) VA
 (40, 'homepage', 'resume_file', 'resume.pdf', '2025-07-17 19:42:09', 'file'),
 (41, 'homepage', 'custom_button_text', 'LinkedIn', '2025-07-17 19:17:50', 'text'),
 (42, 'homepage', 'custom_button_link', 'https://linkedin.com', '2025-07-17 09:58:47', 'link'),
-(43, 'footer', 'LinkedIn', 'https://linkedin.com', '2025-07-17 19:57:41', 'link');
+(43, 'footer', 'LinkedIn', 'https://linkedin.com', '2025-07-17 19:57:41', 'link'),
+(44, 'global', 'favicon', 'favicon.ico', '2025-07-17 20:20:13', 'image');
 
 -- --------------------------------------------------------
 
