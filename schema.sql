@@ -76,7 +76,15 @@ INSERT INTO `contents` (`id`, `slug`, `title`, `content`, `modified`, `type`) VA
 (33, 'homepage', 'about_image', 'about_me_picture.jpg', '2025-07-16 09:53:58', 'image'),
 (34, 'homepage', 'project_1_image', 'project-1.jpg', '2025-07-16 10:10:33', 'image'),
 (35, 'homepage', 'project_2_image', 'project-2.jpg', '2025-07-16 10:12:19', 'image'),
-(36, 'global', 'background_image', 'background.jpg', '2025-07-16 10:17:57', 'image');
+(36, 'global', 'background_image', 'background.jpg', '2025-07-16 10:17:57', 'image'),
+(37, 'homepage', 'custom_title', 'Open to Work', '2025-07-17 19:11:00', 'text'),
+(38, 'homepage', 'custom_text', 'I am skill in x, y, z. I am looking for jobs in a, b, c.', '2025-07-17 19:11:00', 'text'),
+(39, 'homepage', 'resume_button_text', 'Download Resume', '2025-07-17 19:16:07', 'text'),
+(40, 'homepage', 'resume_file', 'resume.pdf', '2025-07-17 19:42:09', 'file'),
+(41, 'homepage', 'custom_button_text', 'LinkedIn', '2025-07-17 19:17:50', 'text'),
+(42, 'homepage', 'custom_button_link', 'https://linkedin.com', '2025-07-17 09:58:47', 'link'),
+(43, 'footer', 'LinkedIn', 'https://linkedin.com', '2025-07-17 19:57:41', 'link'),
+(44, 'global', 'favicon', 'favicon.ico', '2025-07-17 20:20:13', 'image');
 
 -- --------------------------------------------------------
 

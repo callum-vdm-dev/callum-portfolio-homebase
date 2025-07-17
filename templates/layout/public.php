@@ -6,11 +6,13 @@
 -->
 <html>
 <head>
-    <title>Photon by HTML5 UP</title>
+    <title>My Porfolio</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
+    <link rel="icon" href="<?= $this->Url->build('/images/favicon.ico') ?>" sizes="32x32">
+    <link rel="icon" href="<?= $this->Url->build('/images/favicon.svg') ?>" type="image/svg+xml">
 
     <?= $this->Html->css('public-facing/main.css') ?>
     <noscript>

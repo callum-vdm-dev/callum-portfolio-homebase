@@ -34,6 +34,7 @@
                 <input type="text" class="form-control" value="<?= h($content->title) ?>" disabled>
             </div>
 
+<!--            Edit image handling-->
             <?php if ($content->type === 'image'): ?>
                 <div class="col-md-12">
                     <label class="form-label"><?= __('Current Image') ?></label><br>
@@ -56,6 +57,34 @@
                     ]) ?>
                     <div class="form-text">Upload a new image to replace the current one. The filename will stay the same.</div>
                 </div>
+
+<!--         Edit file handling-->
+            <?php elseif ($content->type === 'file'): ?>
+                <div class="col-md-12">
+                    <label class="form-label"><?= __('Current File') ?></label><br>
+                    <?php if (!empty($content->content)): ?>
+                        <a href="<?= $this->Url->build('/documents/' . h($content->content)) ?>"
+                           target="_blank"
+                           rel="noopener noreferrer"
+                           class="btn btn-outline-primary">
+                            View / Download File
+                        </a>
+                    <?php else: ?>
+                        <p class="text-muted fst-italic">No file uploaded yet.</p>
+                    <?php endif; ?>
+                </div>
+
+                <div class="col-md-12">
+                    <?= $this->Form->control('new_file', [
+                        'type'  => 'file',
+                        'label' => 'Replace File',
+                        'class' => 'form-control',
+                        'required' => false
+                    ]) ?>
+                    <div class="form-text">Upload a new file to replace the current one. The filename will stay the same.</div>
+                </div>
+
+<!--            Edit link handling-->
             <?php elseif ($content->type === 'link'): ?>
                 <div class="col-md-12">
                     <?= $this->Form->control('content', [
@@ -66,6 +95,8 @@
                         'value'       => $content->content ?? ''
                     ]) ?>
                 </div>
+
+<!--            Edit email handling-->
             <?php elseif ($content->type === 'email'): ?>
                 <div class="col-md-12">
                     <?= $this->Form->control('content', [
@@ -75,6 +106,8 @@
                         'value' => $content->content ?? ''
                     ]) ?>
                 </div>
+
+<!--            Default handling (catered for text editing)-->
             <?php else: ?>
                 <div class="col-md-12">
                     <label for="editor-content" class="form-label"><?= __('Content') ?></label>

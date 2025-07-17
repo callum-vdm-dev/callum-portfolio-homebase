@@ -144,15 +144,31 @@ $this->setLayout('public')
 
 
 <!-- Four -->
-<section id="contact" class="main style1 special">
+<section id="hire-me" class="main style1 special">
     <div class="container">
         <header class="major">
-            <h2>Get in Contact!</h2>
+            <h2><?= $homepageContents['custom_title'] ?? 'Custom Section' ?></h2>
         </header>
-        <p>Sed lacus nascetur ac ante amet sapien.</p>
+        <p>
+            <?= $homepageContents['custom_text'] ?? 'Text related to the custom section' ?>
+        </p>
         <ul class="actions special">
-            <li><a href="#" class="button wide primary">Sign Up</a></li>
-            <li><a href="#" class="button wide">Learn More</a></li>
+            <li>
+                <a href="<?= $this->Url->build('/documents/resume.pdf') ?>"
+                   class="button wide primary"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    <?= $homepageContents['resume_button_text'] ?? 'Resume' ?>
+                </a>
+            </li>
+            <li>
+                <a href="<?= $homepageContents['custom_button_link'] ?? '' ?>"
+                   class="button wide"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    <?= $homepageContents['custom_button_text'] ?? 'Get in Touch' ?>
+                </a>
+            </li>
         </ul>
     </div>
 </section>

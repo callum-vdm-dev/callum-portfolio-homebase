@@ -2,7 +2,7 @@
 This is a CakePHP webapp that is designed to showcase my projects, and to blog through the process of creating them.
 
 ## Setting up an Admin User
-1. Go to the following URL "root/users/login".
+1. Go to the following URL "root/login".
 2. Login with the Default Admin credentials.
    <br>**Email:** default@example.com
    <br>**Password:** MyNewPortfolio123!
