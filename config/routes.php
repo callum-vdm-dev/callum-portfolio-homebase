@@ -80,6 +80,9 @@ return function (RouteBuilder $routes): void {
         $builder->fallbacks();
     });
 
+    $routes->connect('/login', ['controller' => 'Users', 'action' => 'login']);
+    $routes->connect('/logout', ['controller' => 'Users', 'action' => 'logout']);
+
     $routes->connect('/blog/{slug}',
         ['controller' => 'Posts', 'action' => 'publicView']
     )
