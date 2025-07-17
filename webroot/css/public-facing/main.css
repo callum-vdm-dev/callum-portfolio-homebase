@@ -2002,49 +2002,79 @@ input, select, textarea {
 		}
 
 /* Navbar */
+/* === Base Navbar Styles === */
 .custom-navbar {
-    position: absolute;         /* Sit on top of content */
+    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
-    z-index: 1000;              /* Keep it above everything else */
+    z-index: 1000;
     padding: 1em 0;
+    background: transparent;
+}
+
+.navbar-container {
+    position: relative;
     text-align: center;
 }
 
-.custom-navbar ul {
+.navbar-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    padding: 0.25em 0.5em;
+    line-height: 1;
+    color: white;
+    cursor: pointer;
+    position: absolute;
+    top: 0.75em;
+    right: 1em;
+    z-index: 1001;
+}
+
+.navbar-menu {
     list-style: none;
     padding: 0;
     margin: 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
-.custom-navbar > ul > li {
+.navbar-menu li {
     display: inline-block;
-    position: relative;
     margin: 0 1em;
+    position: relative;
 }
 
-/* Top-level links */
-.custom-navbar a {
+.navbar-menu a {
+    all: unset;
+    cursor: pointer;
     color: white;
-    text-decoration: none;
+    text-decoration: none !important;
     font-weight: 300;
     letter-spacing: 0.03em;
     padding: 0.5em 0.75em;
     display: inline-block;
     transition: background 0.3s ease;
     border-radius: 4px;
-    border: none;
+}
+
+.navbar-menu a:focus,
+.navbar-menu a:active,
+.navbar-menu a:visited {
+    text-decoration: none !important;
+    outline: none;
     box-shadow: none;
 }
 
-/* Hover effect */
-.custom-navbar a:hover {
+.navbar-menu a:hover {
     background-color: rgba(255, 255, 255, 0.15);
 }
 
-/* Dropdown menus */
-.custom-navbar li ul {
+/* === Dropdowns === */
+.navbar-menu li ul {
     display: none;
     position: absolute;
     background-color: rgba(0, 0, 0, 0.85);
@@ -2057,38 +2087,56 @@ input, select, textarea {
     z-index: 1000;
 }
 
-.custom-navbar li:hover > ul {
+.navbar-menu li:hover > ul {
     display: block;
 }
 
-.custom-navbar li ul li {
+.navbar-menu li ul li {
     display: block;
     margin: 0;
 }
 
-.custom-navbar li ul a {
+.navbar-menu li ul a {
     padding: 0.5em 1em;
     color: white;
     text-align: left;
     display: block;
 }
 
-/* Sub-dropdown menus */
-.custom-navbar li ul li ul {
+.navbar-menu li ul li ul {
     top: 0;
     left: 100%;
     transform: none;
     margin-left: 1px;
 }
 
-/* Optional: responsive adjustments */
+/* === Mobile Styles === */
 @media screen and (max-width: 768px) {
-    .custom-navbar > ul > li {
+    .navbar-toggle {
         display: block;
+    }
+
+    .navbar-menu {
+        display: none;
+        flex-direction: column;
+        background-color: rgba(0, 0, 0, 0.9);
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        padding: 1em 0;
+        z-index: 1000;
+    }
+
+    .navbar-menu.show {
+        display: flex;
+    }
+
+    .navbar-menu li {
         margin: 0.5em 0;
+        display: block;
     }
 }
-
 
 /* Section/Article */
 

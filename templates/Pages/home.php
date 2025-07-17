@@ -144,7 +144,7 @@ $this->setLayout('public')
 
 
 <!-- Four -->
-<section id="hire-me" class="main style1 special">
+<section id="custom-section" class="main style1 special">
     <div class="container">
         <header class="major">
             <h2><?= $homepageContents['custom_title'] ?? 'Custom Section' ?></h2>

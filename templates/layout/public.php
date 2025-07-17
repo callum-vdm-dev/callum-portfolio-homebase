@@ -25,21 +25,21 @@
 <body class="is-preload" id="test">
 <!-- Nav -->
 <nav id="nav" class="custom-navbar">
-    <ul>
-        <li>
-            <a href="<?= $this->Url->build('/') ?>">Home</a>
-        </li>
-        <li>
-            <a href="<?= $this->Url->build('/projects') ?>">Projects</a>
-        </li>
-        <li>
-            <a href="<?= $this->Url->build('/blog') ?>">Blog</a>
-        </li>
-        <li class="break">
-            <a href="#contact" class="scroll-to-contact">Contact</a>
-        </li>
-    </ul>
+    <div class="navbar-container">
+        <button class="navbar-toggle" aria-label="Toggle navigation">
+            <span class="sr-only">Toggle navigation</span>
+            <i class="fas fa-bars"></i>
+        </button>
+        <ul class="navbar-menu">
+            <li><a href="<?= $this->Url->build('/') ?>">Home</a></li>
+            <li><a href="<?= $this->Url->build('/projects') ?>">Projects</a></li>
+            <li><a href="<?= $this->Url->build('/blog') ?>">Blog</a></li>
+            <li class="break"><a href="#custom-section" class="scroll-to-contact">Reach Out</a></li>
+        </ul>
+    </div>
 </nav>
+
+
 
 <?= $this->fetch('content') ?>
 
@@ -76,14 +76,26 @@
                 if (isHome) {
                     // Already on homepage scroll nicely to #contact
                     e.preventDefault();
-                    const contactSection = document.getElementById('contact');
+                    const contactSection = document.getElementById('custom-section');
                     if (contactSection) {
                         contactSection.scrollIntoView({ behavior: 'smooth' });
                     }
                 } else {
                     // Not on homepage go to homepage
-                    contactLink.setAttribute('href', '<?= $this->Url->build('/') ?>#contact');
+                    contactLink.setAttribute('href', '<?= $this->Url->build('/') ?>#custom-section');
                 }
+            });
+        }
+    });
+</script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const toggle = document.querySelector('.navbar-toggle');
+        const menu = document.querySelector('.navbar-menu');
+
+        if (toggle && menu) {
+            toggle.addEventListener('click', function () {
+                menu.classList.toggle('show');
             });
         }
     });
