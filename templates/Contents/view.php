@@ -54,6 +54,18 @@
                 <?php else: ?>
                     <p class="text-muted fst-italic">No image uploaded yet.</p>
                 <?php endif; ?>
+
+            <?php elseif ($content->type === 'file'): ?>
+                <?php if (!empty($content->content)): ?>
+                    <p>
+                        <a href="<?= $this->Url->build('/documents/' . h($content->content)) ?>" target="_blank" rel="noopener noreferrer" class="btn btn-outline-primary">
+                            Download <?= h($content->title) ?>
+                        </a>
+                    </p>
+                <?php else: ?>
+                    <p class="text-muted fst-italic">No file uploaded yet.</p>
+                <?php endif; ?>
+
             <?php else: ?>
                 <blockquote class="blockquote p-3 bg-light border rounded">
                     <?= $content->content ?>

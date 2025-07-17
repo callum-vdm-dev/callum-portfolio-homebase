@@ -53,15 +53,15 @@ class ContentsController extends AppController
         if ($this->request->is(['patch', 'post', 'put'])) {
             $data = $this->request->getData();
 
-            // Prevent file object being injected into content accidentally
-            unset($data['new_image']);
+            // Prevent file objects being injected into content accidentally
+            unset($data['new_image'], $data['new_file']);
 
-            // Patch content entity with form data (excluding the file)
+            // Patch entity with submitted data (excluding file uploads)
             $content = $this->Contents->patchEntity($content, $data, [
                 'accessibleFields' => ['slug' => false, 'title' => false]
             ]);
 
-            // Handle image upload after patching
+            // Handle image replacement
             if ($content->type === 'image') {
                 $uploadedImage = $this->request->getData('new_image');
 
@@ -77,8 +77,27 @@ class ContentsController extends AppController
                         mkdir($uploadPath, 0775, true);
                     }
 
-                    // Overwrite existing image file
                     $uploadedImage->moveTo($uploadPath . $targetFilename);
+                }
+            }
+
+            // Handle file replacement (e.g., resume)
+            if ($content->type === 'file') {
+                $uploadedFile = $this->request->getData('new_file');
+
+                if (
+                    $uploadedFile instanceof \Laminas\Diactoros\UploadedFile &&
+                    $uploadedFile->getError() === UPLOAD_ERR_OK
+                ) {
+                    $uploadPath = WWW_ROOT . 'documents' . DS;
+                    $targetFilename = $content->content;
+
+                    // Make sure directory exists
+                    if (!is_dir($uploadPath)) {
+                        mkdir($uploadPath, 0775, true);
+                    }
+
+                    $uploadedFile->moveTo($uploadPath . $targetFilename);
                 }
             }
 
@@ -93,4 +112,5 @@ class ContentsController extends AppController
         $this->viewBuilder()->setLayout('admin');
         $this->set(compact('content'));
     }
+
 }

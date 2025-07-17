@@ -35,6 +35,7 @@
                                 'image' => 'fa-image',
                                 'link' => 'fa-link',
                                 'email' => 'fa-envelope',
+                                'file' => 'fa-file',
                                 default => 'fa-question-circle'
                             };
                             ?>
