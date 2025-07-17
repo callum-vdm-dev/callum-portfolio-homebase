@@ -14,10 +14,13 @@
     <link rel="icon" href="<?= $this->Url->build('/images/favicon.ico') ?>" sizes="32x32">
     <link rel="icon" href="<?= $this->Url->build('/images/favicon.svg') ?>" type="image/svg+xml">
 
-    <?= $this->Html->css('public-facing/main.css') ?>
     <noscript>
         <?= $this->Html->css('public-facing/noscript.css') ?>
     </noscript>
+    <?= $this->Html->css('public-facing/main.css') ?>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" rel="stylesheet" />
 </head>
 <body class="is-preload" id="test">
 <!-- Nav -->
@@ -57,6 +60,9 @@
 <?= $this->Html->script('public-facing/breakpoints.min.js') ?>
 <?= $this->Html->script('public-facing/util.js') ?>
 <?= $this->Html->script('public-facing/main.js') ?>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
 
 <script>
     document.addEventListener('DOMContentLoaded', function () {

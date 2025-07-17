@@ -3064,7 +3064,7 @@ input, select, textarea {
 }
 
 .content-dark * {
-    color: #fff !important;        /* Force white text for nested tags like <strong>, <a>, <h*> */
+    color: #fff;        /* Force white text for nested tags like <strong>, <a>, <h*> */
 }
 
 .content-dark a {
@@ -3117,8 +3117,16 @@ input, select, textarea {
 .modal-header .btn-square:hover {
     background-color: rgba(255, 255, 255, 0.18);
 }
-/* Header */
 
+/*Quill*/
+.ql-ui{
+    display: none;
+}
+.ql-code-block{
+    font-family: monospace;
+}
+
+/* Header */
 #header {
     padding: 9em 0;
     /* fallback solid color */
