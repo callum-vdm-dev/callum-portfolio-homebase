@@ -55,7 +55,7 @@ $this->setLayout('public')
                     <h3><?= $homepageContents['projects_1_title'] ?? 'First Project' ?></h3>
                     <p><?= $homepageContents['projects_1_text'] ?? 'Text about my first project' ?></p>
                     <ul class="actions" style="display: flex; justify-content: center;">
-                        <li><a href="/projects/view/1" class="button">
+                        <li><a href="<?= $this->Url->build('/projects/' . h($homepageContents['project_1_slug'] ?? '')) ?>" class="button">
                                 <?= $homepageContents['projects_button'] ?? 'View' ?>
                             </a></li>
                     </ul>
@@ -70,7 +70,7 @@ $this->setLayout('public')
                     <h3><?= $homepageContents['projects_2_title'] ?? 'Second Project' ?></h3>
                     <p><?= $homepageContents['projects_2_text'] ?? 'Text about my second project' ?></p>
                     <ul class="actions" style="display: flex; justify-content: center;">
-                        <li><a href="/projects/view/2" class="button">
+                        <li><a href="<?= $this->Url->build('/projects/' . h($homepageContents['project_2_slug'] ?? '')) ?>" class="button">
                                 <?= $homepageContents['projects_button'] ?? 'View' ?>
                             </a></li>
                     </ul>
@@ -80,7 +80,7 @@ $this->setLayout('public')
 
         <footer class="major">
             <ul class="actions special">
-                <li><a href="projects" class="button primary">
+                <li><a href="<?= $this->Url->build('/projects') ?>" class="button primary">
                         <?= $homepageContents['projects_all_button'] ?? 'See All Projects' ?>
                     </a></li>
             </ul>
@@ -105,7 +105,8 @@ $this->setLayout('public')
                     <h3><?= $homepageContents['blog_1_title'] ?? 'Post 1' ?></h3>
                     <p><?= $homepageContents['blog_1_text'] ?? 'Text about the first post' ?></p>
                     <ul class="actions special">
-                        <li><a href="/blog/view/1" class="button"><?= $homepageContents['blog_button'] ?? 'Read' ?></a></li>
+                        <li><a href="<?= $this->Url->build('/blog/' . h($homepageContents['blog_1_slug'] ?? '')) ?>"
+                               class="button"><?= $homepageContents['blog_button'] ?? 'Read' ?></a></li>
                     </ul>
                 </div>
             </div>
@@ -115,7 +116,8 @@ $this->setLayout('public')
                     <h3><?= $homepageContents['blog_2_title'] ?? 'Post 2' ?></h3>
                     <p><?= $homepageContents['blog_2_text'] ?? 'Text about the second post' ?></p>
                     <ul class="actions special">
-                        <li><a href="/blog/view/2" class="button"><?= $homepageContents['blog_button'] ?? 'Read' ?></a></li>
+                        <li><a href="<?= $this->Url->build('/blog/' . h($homepageContents['blog_2_slug'] ?? '')) ?>"
+                               class="button"><?= $homepageContents['blog_button'] ?? 'Read' ?></a></li>
                     </ul>
                 </div>
             </div>
@@ -125,7 +127,7 @@ $this->setLayout('public')
                     <h3><?= $homepageContents['blog_3_title'] ?? 'Post 3' ?></h3>
                     <p><?= $homepageContents['blog_3_text'] ?? 'Text about the third post' ?></p>
                     <ul class="actions special">
-                        <li><a href="/blog/view/3" class="button"><?= $homepageContents['blog_button'] ?? 'Read' ?></a></li>
+                        <li><a href="<?= $this->Url->build('/blog/' . h($homepageContents['blog_3_slug'] ?? '')) ?>" class="button"><?= $homepageContents['blog_button'] ?? 'Read' ?></a></li>
                     </ul>
                 </div>
             </div>
@@ -133,7 +135,7 @@ $this->setLayout('public')
 
         <footer class="major">
             <ul class="actions special">
-                <li><a href="/blog" class="button primary">
+                <li><a href="<?= $this->Url->build('/blog') ?>" class="button primary">
                         <?= $homepageContents['blog_all_button'] ?? 'See All Posts' ?>
                     </a></li>
             </ul>
