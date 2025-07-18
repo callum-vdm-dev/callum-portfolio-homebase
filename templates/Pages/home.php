@@ -47,7 +47,7 @@ $this->setLayout('public')
         </div>
 
         <div class="row gtr-150">
-            <div class="col-6 col-12-medium">
+            <div class="col-md-6 col-12 mb-4">
                 <div class="card project-card">
                     <span class="image fit">
                         <img src="images/project-1.jpg" alt="Project 1" />
@@ -62,7 +62,7 @@ $this->setLayout('public')
                 </div>
             </div>
 
-            <div class="col-6 col-12-medium">
+            <div class="col-md-6 col-12 mb-4">
                 <div class="card project-card">
                     <span class="image fit">
                         <img src="images/project-2.jpg" alt="Project 2" />
@@ -100,7 +100,7 @@ $this->setLayout('public')
         </div>
 
         <div class="row gtr-150">
-            <div class="col-4 col-12-medium">
+            <div class="col-lg-4 col-md-12 col-12 mb-4">
                 <div class="card blog-card">
                     <h3><?= $homepageContents['blog_1_title'] ?? 'Post 1' ?></h3>
                     <p><?= $homepageContents['blog_1_text'] ?? 'Text about the first post' ?></p>
@@ -110,7 +110,7 @@ $this->setLayout('public')
                 </div>
             </div>
 
-            <div class="col-4 col-12-medium">
+            <div class="col-lg-4 col-md-12 col-12 mb-4">
                 <div class="card blog-card">
                     <h3><?= $homepageContents['blog_2_title'] ?? 'Post 2' ?></h3>
                     <p><?= $homepageContents['blog_2_text'] ?? 'Text about the second post' ?></p>
@@ -120,7 +120,7 @@ $this->setLayout('public')
                 </div>
             </div>
 
-            <div class="col-4 col-12-medium">
+            <div class="col-lg-4 col-md-12 col-12 mb-4">
                 <div class="card blog-card">
                     <h3><?= $homepageContents['blog_3_title'] ?? 'Post 3' ?></h3>
                     <p><?= $homepageContents['blog_3_text'] ?? 'Text about the third post' ?></p>
