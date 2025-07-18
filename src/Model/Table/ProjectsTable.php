@@ -13,7 +13,6 @@ use Cake\Validation\Validator;
  *
  * @property \App\Model\Table\UsersTable&\Cake\ORM\Association\BelongsTo $Users
  * @property \App\Model\Table\PostsTable&\Cake\ORM\Association\HasMany $Posts
- * @property \App\Model\Table\ProjectPhotosTable&\Cake\ORM\Association\HasMany $ProjectPhotos
  *
  * @method \App\Model\Entity\Project newEmptyEntity()
  * @method \App\Model\Entity\Project newEntity(array $data, array $options = [])
@@ -53,9 +52,6 @@ class ProjectsTable extends Table
             'foreignKey' => 'user_id',
         ]);
         $this->hasMany('Posts', [
-            'foreignKey' => 'project_id',
-        ]);
-        $this->hasMany('ProjectPhotos', [
             'foreignKey' => 'project_id',
         ]);
     }

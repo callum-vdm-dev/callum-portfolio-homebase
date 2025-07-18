@@ -107,23 +107,6 @@ CREATE TABLE `posts` (
   `project_id` int(11) DEFAULT NULL,
   `user_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `post_photos`
---
-
-CREATE TABLE `post_photos` (
-  `id` int(11) NOT NULL,
-  `title` varchar(255) NOT NULL,
-  `caption` text DEFAULT NULL,
-  `path` varchar(255) NOT NULL,
-  `created` datetime NOT NULL DEFAULT current_timestamp(),
-  `post_id` int(11) NOT NULL,
-  `sort_order` int(11) NOT NULL DEFAULT 0
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
 -- --------------------------------------------------------
 
 --
@@ -142,22 +125,6 @@ CREATE TABLE `projects` (
   `created` datetime NOT NULL DEFAULT current_timestamp(),
   `modified` datetime NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `user_id` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `project_photos`
---
-
-CREATE TABLE `project_photos` (
-  `id` int(11) NOT NULL,
-  `title` varchar(255) NOT NULL,
-  `caption` text DEFAULT NULL,
-  `path` varchar(255) NOT NULL,
-  `created` datetime NOT NULL DEFAULT current_timestamp(),
-  `project_id` int(11) NOT NULL,
-  `sort_order` int(11) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -203,26 +170,12 @@ ALTER TABLE `posts`
   ADD KEY `FK_post_project_id` (`project_id`);
 
 --
--- Indexes for table `post_photos`
---
-ALTER TABLE `post_photos`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `FK_photo_post_id` (`post_id`);
-
---
 -- Indexes for table `projects`
 --
 ALTER TABLE `projects`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `slug` (`slug`),
   ADD KEY `FK_project_user_id` (`user_id`);
-
---
--- Indexes for table `project_photos`
---
-ALTER TABLE `project_photos`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `FK_project_ id` (`project_id`);
 
 --
 -- Indexes for table `users`
@@ -248,21 +201,9 @@ ALTER TABLE `posts`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `post_photos`
---
-ALTER TABLE `post_photos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT for table `projects`
 --
 ALTER TABLE `projects`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `project_photos`
---
-ALTER TABLE `project_photos`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
@@ -283,22 +224,11 @@ ALTER TABLE `posts`
   ADD CONSTRAINT `FK_post_user_id` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE;
 
 --
--- Constraints for table `post_photos`
---
-ALTER TABLE `post_photos`
-  ADD CONSTRAINT `FK_photo_post_id` FOREIGN KEY (`post_id`) REFERENCES `posts` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
 -- Constraints for table `projects`
 --
 ALTER TABLE `projects`
   ADD CONSTRAINT `FK_project_user_id` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE;
 
---
--- Constraints for table `project_photos`
---
-ALTER TABLE `project_photos`
-  ADD CONSTRAINT `FK_project_ id` FOREIGN KEY (`project_id`) REFERENCES `projects` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

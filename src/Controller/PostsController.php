@@ -50,7 +50,7 @@ class PostsController extends AppController
      */
     public function view($id = null)
     {
-        $post = $this->Posts->get($id, contain: ['Projects', 'Users', 'PostPhotos']);
+        $post = $this->Posts->get($id, contain: ['Projects', 'Users']);
         $this->viewBuilder()->setLayout('admin');
         $this->set(compact('post'));
     }
