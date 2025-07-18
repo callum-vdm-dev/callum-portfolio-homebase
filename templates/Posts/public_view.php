@@ -21,7 +21,7 @@ $this->assign('title', $post->title);
                         Related Project:
                         <?= $this->Html->link(
                             h($post->project->title),
-                            ['controller' => 'Projects', 'action' => 'publicView', $post->project->id],
+                            ['controller' => 'Projects', 'action' => 'publicView', $post->project->slug],
                             ['class' => 'text-decoration-underline']
                         ) ?>
                     </span>
