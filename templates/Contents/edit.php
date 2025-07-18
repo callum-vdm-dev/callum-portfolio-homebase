@@ -96,6 +96,19 @@
                     ]) ?>
                 </div>
 
+<!--            Edit slug handling-->
+            <?php elseif ($content->type === 'slug'): ?>
+                <div class="col-md-12">
+                    <?= $this->Form->control('content', [
+                        'type'        => 'text',
+                        'label'       => 'Slug',
+                        'class'       => 'form-control',
+                        'placeholder' => 'e.g. my-project-slug',
+                        'value'       => $content->content ?? ''
+                    ]) ?>
+                    <div class="form-text">This will be used in the URL. Only lowercase letters, numbers, and hyphens are recommended.</div>
+                </div>
+
 <!--            Edit email handling-->
             <?php elseif ($content->type === 'email'): ?>
                 <div class="col-md-12">

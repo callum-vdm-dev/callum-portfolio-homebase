@@ -84,8 +84,12 @@ INSERT INTO `contents` (`id`, `slug`, `title`, `content`, `modified`, `type`) VA
 (41, 'homepage', 'custom_button_text', 'LinkedIn', '2025-07-17 19:17:50', 'text'),
 (42, 'homepage', 'custom_button_link', 'https://linkedin.com', '2025-07-17 09:58:47', 'link'),
 (43, 'footer', 'LinkedIn', 'https://linkedin.com', '2025-07-17 19:57:41', 'link'),
-(44, 'global', 'favicon', 'favicon.ico', '2025-07-17 20:20:13', 'image');
-
+(44, 'global', 'favicon', 'favicon.ico', '2025-07-17 20:20:13', 'image'),
+(45, 'homepage', 'project_1_slug', 'abc', '2025-07-18 17:13:39', 'slug'),
+(46, 'homepage', 'project_2_slug', 'cakephp-1001', '2025-07-18 07:22:47', 'slug'),
+(47, 'homepage', 'blog_1_slug', 'project', '2025-07-18 17:13:49', 'slug'),
+(48, 'homepage', 'blog_2_slug', 'dsv', '2025-07-18 17:13:54', 'slug'),
+(49, 'homepage', 'blog_3_slug', 'additions', '2025-07-18 17:13:58', 'slug');
 -- --------------------------------------------------------
 
 --
