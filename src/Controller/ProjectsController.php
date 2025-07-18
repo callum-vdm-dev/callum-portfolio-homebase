@@ -51,7 +51,7 @@ class ProjectsController extends AppController
      */
     public function view($id = null)
     {
-        $project = $this->Projects->get($id, contain: ['Users', 'Posts', 'ProjectPhotos']);
+        $project = $this->Projects->get($id, contain: ['Users', 'Posts']);
         $this->viewBuilder()->setLayout('admin');
         $this->set(compact('project'));
     }

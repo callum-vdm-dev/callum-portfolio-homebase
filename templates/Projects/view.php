@@ -85,45 +85,4 @@
             </div>
         </div>
     <?php endif; ?>
-
-    <?php if (!empty($project->project_photos)) : ?>
-        <div class="card mb-4">
-            <div class="card-header">Related Project Photos</div>
-            <div class="card-body table-responsive">
-                <table class="table table-hover table-bordered align-middle">
-                    <thead class="table-light">
-                    <tr>
-                        <th>Title</th>
-                        <th>Caption</th>
-                        <th>Path</th>
-                        <th>Created</th>
-                        <th>Project ID</th>
-                        <th>Sort Order</th>
-                        <th>Actions</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <?php foreach ($project->project_photos as $photo) : ?>
-                        <tr>
-                            <td><?= h($photo->title) ?></td>
-                            <td><?= h($photo->caption) ?></td>
-                            <td><?= h($photo->path) ?></td>
-                            <td><?= h($photo->created) ?></td>
-                            <td><?= h($photo->project_id) ?></td>
-                            <td><?= h($photo->sort_order) ?></td>
-                            <td class="text-nowrap">
-                                <?= $this->Html->link('View', ['controller' => 'ProjectPhotos', 'action' => 'view', $photo->id], ['class' => 'btn btn-sm btn-outline-primary']) ?>
-                                <?= $this->Html->link('Edit', ['controller' => 'ProjectPhotos', 'action' => 'edit', $photo->id], ['class' => 'btn btn-sm btn-outline-secondary']) ?>
-                                <?= $this->Form->postLink('Delete', ['controller' => 'ProjectPhotos', 'action' => 'delete', $photo->id], [
-                                    'confirm' => __('Are you sure you want to delete # {0}?', $photo->id),
-                                    'class' => 'btn btn-sm btn-outline-danger'
-                                ]) ?>
-                            </td>
-                        </tr>
-                    <?php endforeach; ?>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    <?php endif; ?>
 </div>

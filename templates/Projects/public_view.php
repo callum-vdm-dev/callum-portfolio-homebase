@@ -106,7 +106,7 @@ $this->assign('title', $project->title);
                                         <div class="flex-grow-1 pe-3">
                                             <?= $this->Html->link(
                                                 h($post->title),
-                                                ['controller' => 'Posts', 'action' => 'view', $post->id],
+                                                ['controller' => 'Posts', 'action' => 'publicView', $post->slug],
                                                 ['class' => 'text-white fw-bold']
                                             ) ?>
                                             <div class="mt-1">
@@ -123,7 +123,7 @@ $this->assign('title', $project->title);
                                             </div>
                                         </div>
                                         <div>
-                                            <a href="<?= $this->Url->build(['controller' => 'Posts', 'action' => 'view', $post->id]) ?>" class="btn btn-outline-light btn-square">
+                                            <a href="<?= $this->Url->build(['controller' => 'Posts', 'action' => 'publicView', $post->slug]) ?>" class="btn btn-outline-light btn-square">
                                                 <i class="fa fa-arrow-right"></i>
                                             </a>
                                         </div>
