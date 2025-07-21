@@ -1,0 +1,20 @@
+User-agent: *
+
+# Allow all public-facing pages
+Allow: /blog
+Allow: /blog/
+Allow: /blog/*.html
+Allow: /projects
+Allow: /projects/
+Allow: /projects/*.html
+Allow: /
+
+# Disallow admin section
+Disallow: /admin/
+
+Disallow: /login
+Disallow: /logout
+Disallow: /pages/
+Disallow: /users/
+Disallow: /contents/
+Disallow: /posts/uploadImage

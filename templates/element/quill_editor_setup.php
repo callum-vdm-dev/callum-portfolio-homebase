@@ -60,7 +60,6 @@ $toolbarId = $editorId . '-toolbar';
 <div id="<?= $editorId ?>" style="height: 300px;"></div>
 <input type="hidden" id="<?= $fieldName ?>" name="<?= $fieldName ?>" value="<?= h($initialContent) ?>" />
 
-<!-- Init script -->
 <script>
     document.addEventListener('DOMContentLoaded', function () {
         const quill = new Quill('#<?= $editorId ?>', {
@@ -68,7 +67,6 @@ $toolbarId = $editorId . '-toolbar';
             placeholder: 'Compose your post...',
             modules: {
                 syntax: true,
-                formula: true,
                 toolbar: {
                     container: '#<?= $toolbarId ?>',
                     handlers: {
@@ -114,9 +112,15 @@ $toolbarId = $editorId . '-toolbar';
         });
 
         const hiddenInput = document.getElementById('<?= $fieldName ?>');
+        // Use Quill's API to set initial content
         if (hiddenInput.value) {
-            quill.root.innerHTML = hiddenInput.value;
+            quill.clipboard.dangerouslyPasteHTML(hiddenInput.value);
         }
+
+        // Always keep hidden input in sync with editor
+        quill.on('text-change', function() {
+            hiddenInput.value = quill.root.innerHTML;
+        });
 
         const form = hiddenInput.closest('form');
         if (form) {
@@ -126,4 +130,3 @@ $toolbarId = $editorId . '-toolbar';
         }
     });
 </script>
-

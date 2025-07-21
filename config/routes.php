@@ -77,7 +77,7 @@ return function (RouteBuilder $routes): void {
          * It is NOT recommended to use fallback routes after your initial prototyping phase!
          * See https://book.cakephp.org/5/en/development/routing.html#fallbacks-method for more information
          */
-        $builder->fallbacks();
+        //$builder->fallbacks();
     });
 
     $routes->connect('/login', ['controller' => 'Users', 'action' => 'login']);
@@ -104,11 +104,14 @@ return function (RouteBuilder $routes): void {
     $routes->connect('/admin/projects/add', ['controller' => 'Projects', 'action' => 'add']);
     $routes->connect('/admin/projects/edit/*', ['controller' => 'Projects', 'action' => 'edit']);
     $routes->connect('/admin/projects/view/*', ['controller' => 'Projects', 'action' => 'view']);
+    $routes->connect('/admin/projects/delete/*', ['controller' => 'Projects', 'action' => 'delete']);
 
     $routes->connect('/admin/posts', ['controller' => 'Posts', 'action' => 'index']);
     $routes->connect('/admin/posts/add', ['controller' => 'Posts', 'action' => 'add']);
     $routes->connect('/admin/posts/edit/*', ['controller' => 'Posts', 'action' => 'edit']);
     $routes->connect('/admin/posts/view/*', ['controller' => 'Posts', 'action' => 'view']);
+    $routes->connect('/admin/posts/delete/*', ['controller' => 'Posts', 'action' => 'delete']);
+    $routes->connect('/admin/posts/uploadImage', ['controller' => 'Posts', 'action' => 'uploadImage']);
 
     $routes->connect('/admin/contents', ['controller' => 'Contents', 'action' => 'index']);
     $routes->connect('/admin/contents/view/*', ['controller' => 'Contents', 'action' => 'view']);
@@ -118,6 +121,7 @@ return function (RouteBuilder $routes): void {
     $routes->connect('/admin/users/add', ['controller' => 'Users', 'action' => 'add']);
     $routes->connect('/admin/users/edit/*', ['controller' => 'Users', 'action' => 'edit']);
     $routes->connect('/admin/users/view/*', ['controller' => 'Users', 'action' => 'view']);
+    $routes->connect('/admin/users/delete/*', ['controller' => 'Users', 'action' => 'delete']);
 
     /*
      * If you need a different set of middleware or none at all,
