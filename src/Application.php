@@ -101,6 +101,8 @@ class Application extends BaseApplication implements AuthenticationServiceProvid
             ->add(new BodyParserMiddleware())
             // Add the AuthenticationMiddleware. It should be after routing and body parser.
             ->add(new AuthenticationMiddleware($this))
+            // Add the RateLimitMiddleware to limit requests per IP
+            ->add(new \App\Middleware\RateLimitMiddleware())
             // Add security headers middleware to set security headers
             ->add(new \App\Middleware\SecurityHeadersMiddleware());
 
