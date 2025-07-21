@@ -20,7 +20,7 @@ class SecurityHeadersMiddleware implements MiddlewareInterface
         ->withHeader('Strict-Transport-Security', 'max-age=31536000; includeSubDomains; preload')
         ->withHeader(
             'Content-Security-Policy',
-            "default-src 'self'; script-src 'self' 'unsafe-inline' cdnjs.cloudflare.com cdn.jsdelivr.net use.fontawesome.com; style-src 'self' 'unsafe-inline' cdnjs.cloudflare.com cdn.jsdelivr.net fonts.googleapis.com; font-src 'self' fonts.gstatic.com cdn.jsdelivr.net;"
+            "default-src 'self'; script-src 'self' 'unsafe-inline' cdnjs.cloudflare.com cdn.jsdelivr.net use.fontawesome.com; style-src 'self' 'unsafe-inline' cdnjs.cloudflare.com cdn.jsdelivr.net fonts.googleapis.com; font-src 'self' fonts.gstatic.com cdn.jsdelivr.net; img-src 'self' data:"
         );
     }
 }
