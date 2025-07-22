@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
+use Cake\Database\Expression\QueryExpression;
 use Cake\ORM\TableRegistry;
 
 /**
@@ -139,12 +140,11 @@ class ProjectsController extends AppController
 
         $query = $this->Projects->find()
             ->contain(['Users'])
-            // Exclude archived projects:
             ->where(['Projects.status !=' => 'archived'])
-            ->order(['Projects.start_date' => 'DESC']);
-
-
-
+            ->order([
+                new QueryExpression('ISNULL(Projects.start_date) ASC'), // put entries with real start_date first
+                new QueryExpression('COALESCE(Projects.start_date, Projects.created) DESC')
+            ]);
         $projects = $this->paginate($query, [
             'limit'    => 12,
             'maxLimit' => 24,
@@ -153,8 +153,6 @@ class ProjectsController extends AppController
         $this->viewBuilder()->setLayout('public');
         $this->set(compact('projects'));
     }
-
-
 
     /**
      * publicView method
