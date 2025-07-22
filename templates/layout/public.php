@@ -18,6 +18,7 @@
         <?= $this->Html->css('public-facing/noscript.css') ?>
     </noscript>
     <?= $this->Html->css('public-facing/main.css') ?>
+    <?= $this->Html->css('public-facing/lists.css') ?>
 
     <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css" rel="stylesheet" />
     <link href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" rel="stylesheet" />
